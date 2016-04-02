@@ -3,27 +3,25 @@
 	<%= error_message %>
 <% } %>
 
-	<head>
-		<title>Login</title>
-	</head>
+<head>
+	<title>Login</title>
+</head>
+<body id="loginbody">
+		<img id="logopic" width="230px" src="/images/logo.png"/>
 
-<div id="Loginlogo"><img src=""/>
-</div>
-		<div class="form">
-			<form method="POST" action="/login">
+			<div class="form">
+					<form method="POST" action="/login">
+						<div style="padding-top: 2px">
+							<input class="padding" type="text" placeholder="Username" name="username">
+						</div>
 
-				<div class="padding">
-					<input class="padding" type="text" placeholder="Username" name="username">
-				</div>
+						<div style="padding-top: 2px">
+							<input class="padding" type="password" placeholder="Password" name="password">
+						</div>
 
-				<div class="padding">
-					<input class="padding" type="password" placeholder="Password" name="password">
-				</div>
-
-				<div class="input">
-					<input class="padding" type="submit" value="Submit">
-				</div>
-
-
-			</form>
-		</div>
+						<div style="padding-top: 2px" class="input">
+							<input class="padding" type="submit" value="Submit">
+						</div>
+					</form>
+			</div>
+</body>
