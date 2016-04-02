@@ -1,0 +1,29 @@
+
+<% if (error_message) { %>
+	<%= error_message %>
+<% } %>
+
+	<head>
+		<title>Login</title>
+	</head>
+
+<div id="Loginlogo"><img src=""/>
+</div>
+		<div class="form">
+			<form method="POST" action="/login">
+
+				<div class="padding">
+					<input class="padding" type="text" placeholder="Username" name="username">
+				</div>
+
+				<div class="padding">
+					<input class="padding" type="password" placeholder="Password" name="password">
+				</div>
+
+				<div class="input">
+					<input class="padding" type="submit" value="Submit">
+				</div>
+
+
+			</form>
+		</div>
