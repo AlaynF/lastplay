@@ -6,16 +6,22 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'livegames'
+  database: 'test'
 })
 
   connection.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
-      connection.query('INSERT INTO livegames (home, away, a, name) VALUES (home, away, a, name )', ['home', 'away', 'a','name'], function(err, result) {
-      if (err) throw err
-  })
-})
+  if (err) {
+    throw err;
+  }
+
+  console.log('You are now connected...');
+
+  var home = 'nets';
+
+    connection.query('INSERT INTO livegames (home, away, a, name) VALUES ("' + nets + '", "away", "a", "name")');
+
+  });
+
 
 request('http://www.stream2watch.co/live-now', function (error, response, html) {
   if (!error && response.statusCode == 200) {
@@ -38,4 +44,30 @@ request('http://www.stream2watch.co/live-now', function (error, response, html) 
 
     });
   }
+});
+
+
+
+$scope.submitInfo = function() {}
+  var data = {
+      username: $scope.info.email,
+      /* password: $scope.info.password */
+  };
+      console.log(data)
+  $http.post("/login", data).success(function(data,status) {
+    $scope.info = data;
+      console.log(data)
+    if ()
+
+if (data.success == true) {
+         $window.location.href = "/profile";
+    } else {
+      alert("Incorrect Username/Password");
+
+    }
+
+
+   });
+
+
 });

@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     controller: 'Authentication',
-    action: 'render_homepage'
+    action: 'render_login'
   },
 
   'POST /login': {
@@ -65,7 +65,12 @@ module.exports.routes = {
   '/home': {
     controller:'Authentication',
     action: 'render_homepage'
-  }
+},
+
+'POST /handle_email': {
+  controller:'Authentication',
+  action: 'handle_email'
+}
 
   /***************************************************************************
   *                                                                          *

@@ -40,12 +40,12 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  local: {
+  mysql: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'livegames'
+    host: 'us-cdbr-iron-east-03.cleardb.net',
+    user: 'b63823b4b8fc67',
+    password: '4715889f',
+    database: 'heroku_2c49289a9c8db2b'
   },
 
   /***************************************************************************

@@ -6,15 +6,16 @@
  */
 
 
-var all_users = [];
+var all_users = [
+	{username: 'Alayn', password: 'Alayn'}
+];
 
 module.exports = {
 	login: function (req, res) {
-		var user_exists = false;
+		var found_user, user_exists = false;
 		var error_message = '';
 		var data = req.body;
-
-
+		console.log(all_users);
 
 		all_users.forEach(function (user) {
 			if (user['username'] != data.username) {
@@ -26,61 +27,60 @@ module.exports = {
 				return;
 			}
 
-			user_exists = true
+			user_exists = true;
+			found_user = user;
 		});
 
-
 		if (user_exists == true) {
-				res.redirect('/profile');
+				res.json({
+				success: true
+						});
 		}
+
 		else {
-				res.send(error_message);
+			res.json({
+			success: false,
+			error_message: error_message
+					});
 		}
 	},
 
 	register: function (req, res) {
-		var user;
+		var user = false;
 		var data = req.body;
-
 
 		user = {
 			username: data.username,
 			password: data.password,
-			email:data.email,
-			name:data.fullname
+			email: data.email,
+			name: data.name
 		}
 
 
-		if (!user.username) {
-			res.view('register', {
-				error_message: 'No Username.'
+		if (!data.username || !data.password || !data.email || !data.name) {
+			res.json({
+			success: false
 			});
 
-			return;
-
 		}
 
-		if (!user.password) {
-				res.view('register', {
-					error_message: 'Blank Password'
-				});
-
-				return;
+		else {
+			res.json({
+				success: true
+			});
 		}
 
 		all_users.push(user);
-
-		res.redirect('/login')
 	},
 
-	//render_homepage: function (req, res) {
-		// res.view('homepage', {
-		// 	error_message: ''
-		//
-		// });
+	render_homepage: function (req, res) {
+		 res.view('homepage', {
+		 	error_message: ''
 
-		 //res.redirect('/register');
-	//},
+	});
+
+		 res.redirect('/register');
+	},
 
 	render_register: function (req, res) {
 		res.view('register', {
@@ -108,5 +108,21 @@ module.exports = {
 		res.view('home', {
 			error_message: ''
 		});
+	},
+
+
+
+	handle_email: function (req, res) {
+		var data = req.body;
+
+		if (data.email) {
+			Users.create({
+				email: data.email
+			}).exec(function (err, user) {
+				if (err) {
+					console.log(err);
+				}
+			});
+		}
 	}
 };

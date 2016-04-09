@@ -1,27 +1,28 @@
+<div ng-controller="login" class="view">
 
-<% if (error_message) { %>
-	<%= error_message %>
-<% } %>
+	<% if (error_message) { %>
+		<%= error_message %>
+	<% } %>
 
-<head>
-	<title>Login</title>
-</head>
-<body id="loginbody">
-		<img id="logopic" width="230px" src="/images/logo.png"/>
+	<header>
+		<title>Login</title>
+	</header>
+	<img class="logopic" width="230px" src="/images/logo.png"/>
 
-			<div class="form">
-					<form method="POST" action="/login">
-						<div style="padding-top: 2px">
-							<input class="padding" type="text" placeholder="Username" name="username">
-						</div>
+		<div class="form">
+				<form ng-submit="submitInfo()">
+					<div style="padding-top: 2px">
+						<input style="width: 200px" ng-model="info.email" class="padding" type="text" placeholder="Email" name="email">
+					</div>
 
-						<div style="padding-top: 2px">
-							<input class="padding" type="password" placeholder="Password" name="password">
-						</div>
+				<!--	<div style="padding-top: 2px">
+						<input ng-model="info.password" class="padding" type="password" placeholder="Password" name="password">
+					</div> -->
 
-						<div style="padding-top: 2px" class="input">
-							<input class="padding" type="submit" value="Submit">
-						</div>
-					</form>
-			</div>
-</body>
+					<div style="padding-top: 2px" class="input">
+						<button ng-click="emailsubmit()" class="padding">Submit</button>
+					</div>
+				</form>
+		</div>
+
+</div>
