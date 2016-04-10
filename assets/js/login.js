@@ -16,7 +16,7 @@ window.app.controller('login', function($scope, $http, $location, $window) {
                 $http.post('/handle_email', {
                     email: $scope.info.email
                 });
-                
+
                 window.location.href="/home";
             }
         }
