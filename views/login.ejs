@@ -1,4 +1,4 @@
-<div ng-controller="login" class="view">
+<div ng-controller= 'login' class="view">
 
 	<% if (error_message) { %>
 		<%= error_message %>
@@ -12,7 +12,7 @@
 		<div class="form">
 				<form ng-submit="submitInfo()">
 					<div style="padding-top: 2px">
-						<input style="width: 200px" ng-model="info.email" class="padding" type="email" placeholder="Email" name="email">
+						<input style="width: 200px" ng-model="info.email" class="padding" type="text" placeholder="Email" name="email">
 					</div>
 
 				<!--	<div style="padding-top: 2px">
