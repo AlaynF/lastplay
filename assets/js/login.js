@@ -8,17 +8,22 @@ window.app.controller('login', function($scope, $http, $location, $window) {
     $scope.emailsubmit = function() {
         if (!$scope.info.email) {
             alert("Please enter Email");
-        } else {
-            if (!email_reg.test($scope.info.email)) {
-                alert("NOT VALID");
-            } else {
+            return;
+        }
 
-                $http.post('/handle_email', {
+        console.log('1')
+
+        if (!email_reg.test($scope.info.email)) {
+                alert("NOT VALID");
+                return;
+            }
+
+        else
+
+                $http.post('handle_email', {
                     email: $scope.info.email
                 });
 
                 window.location.href="/home";
             }
-        }
-    }
-});
+        });
