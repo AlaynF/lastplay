@@ -1,4 +1,4 @@
-window.app.controller('login', function($scope, $http, $location, $window) {
+window.app.controller('login', function($scope, $http, $window) {
     document.title="Login";
 
     var email_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -8,14 +8,11 @@ window.app.controller('login', function($scope, $http, $location, $window) {
    $scope.emailsubmit = function() {
         if (!$scope.info.email) {
             alert("Please enter Email");
-            return;
         }
-
-        console.log('1')
 
         if (!email_reg.test($scope.info.email)) {
                 alert("NOT VALID");
-                return;
+
             }
 
         else
@@ -24,6 +21,6 @@ window.app.controller('login', function($scope, $http, $location, $window) {
                     email: $scope.info.email
                   });
 
-                window.location.href="/home";
+                $window.location.href="/home";
             }
-        });
+        })();
