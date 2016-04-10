@@ -20,7 +20,7 @@ window.app.controller('login', function($scope, $http, $location, $window) {
 
         else
 
-                $http.post('handle_email', {
+                $http.post('/handle_email', {
                     email: $scope.info.email
                 });
 
