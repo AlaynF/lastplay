@@ -5,7 +5,7 @@ window.app.controller('login', function($scope, $http, $location, $window) {
 
     $scope.info = {}
 
-    $scope.emailsubmit = function() {
+   $scope.emailsubmit = function() {
         if (!$scope.info.email) {
             alert("Please enter Email");
             return;
@@ -22,7 +22,7 @@ window.app.controller('login', function($scope, $http, $location, $window) {
 
                 $http.post('/handle_email', {
                     email: $scope.info.email
-                });
+                  });
 
                 window.location.href="/home";
             }
