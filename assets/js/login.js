@@ -7,18 +7,20 @@ window.app.controller('login', function($scope, $http, $window) {
 
    $scope.emailsubmit = function() {
         if (!$scope.info.email) {
-            alert("Please enter Email");
+            sweetAlert("Oops...", "Please enter E-mail", "error");
+            return;
         }
           else
 
             if (!email_reg.test($scope.info.email)) {
-                alert("NOT VALID");
+                sweetAlert("Oops...", "E-mail not valid", "error");
+                return;
             }
 
-                    $http.post('/handle_email', {
-                    email: $scope.info.email
-                  });
-
-                $window.location.href="/home";
-            }
+        $http.post('/handle_email', {
+        email: $scope.info.email
         });
+        console.log($scope.info.email)
+        $window.location.href="/home";
+    }
+});

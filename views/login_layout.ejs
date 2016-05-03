@@ -25,18 +25,20 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bulma.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/sweetalert.css">
     <!--STYLES END-->
 
 
 
     </head>
 
-    <body class="loginbody" ng-app="superfood">
+    <body ng-app="superfood">
       <%- body %>
 
 
@@ -92,12 +94,14 @@
 
       <!--SCRIPTS-->
       <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/sweetalert.min.js"></script>
       <script src="/js/ang.js"></script>
-      <script src="/js/fruits.js"></script>
+      <script src="/js/contact.js"></script>
       <script src="/js/home.js"></script>
       <script src="/js/login.js"></script>
       <script src="/js/profile.js"></script>
       <script src="/js/register.js"></script>
+      <script src="/js/sweetalert.min.js"></script>
       <!--SCRIPTS END-->
     </body>
   </html>

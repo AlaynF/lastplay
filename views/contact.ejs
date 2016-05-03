@@ -1,0 +1,18 @@
+
+<div ng-controller='contact' style="margin-top:200px" class="container">
+    <label class="label">E-mail</label>
+    <p class="control has-icon">
+        <input ng-model="email" class="input" type="text" placeholder="Email" name="email">
+        <i class="fa fa-envelope"></i>
+    </p>
+
+    <label class="label">Message</label>
+    <p class="control">
+        <textarea ng-model="contact" class="textarea" name="contact" placeholder="Send us a message!"></textarea>
+    </p>
+
+    <p class="control">
+        <button ng-click="message()" class="button is-primary">Submit</button>
+        <button ng-click="clear()" class="button is-outlined">Cancel</button>
+    </p>
+</div>

@@ -1,28 +1,25 @@
-<div ng-controller= 'login' class="view">
+<% if (error_message) { %>
+	<%= error_message %>
+<% } %>
 
-	<% if (error_message) { %>
-		<%= error_message %>
-	<% } %>
+<div style="margin-top: 400px" ng-controller='login'>
+	<div style="width:230px" class="container">
+		<img class="logopic" width="230px" src="/images/logo.png"/>
+	</div>
 
-	<header>
-		<title>Login</title>
-	</header>
-	<img class="logopic" width="230px" src="/images/logo.png"/>
-
-		<div class="form">
-				<form ng-submit="submitInfo()">
-					<div style="padding-top: 2px">
-						<input style="width: 200px" ng-model="info.email" class="padding" type="text" placeholder="Email" name="email">
-					</div>
+		<div style="padding-top: 2px; width: 230px" class="container">
+			<p class="control has-icon">
+				<input style="width: 200px" ng-model="info.email" class="input" type="email" placeholder="Email" name="email">
+				<i class="fa fa-envelope"></i>
+			</p>
+		</div>
 
 				<!--	<div style="padding-top: 2px">
 						<input ng-model="info.password" class="padding" type="password" placeholder="Password" name="password">
 					</div> -->
 
-					<div style="padding-top: 8px" class="input">
-						<button class="submit" ng-click="emailsubmit()" class="padding">Submit</button>
-					</div>
-				</form>
+		<div style="padding-top: 8px; width: 165px" class="container" >
+			<button style="width: 130px" class="button is-success" ng-click="emailsubmit()" class="padding">Submit</button>
 		</div>
 
 </div>

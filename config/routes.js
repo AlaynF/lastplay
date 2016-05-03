@@ -33,44 +33,64 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    controller: 'Authentication',
-    action: 'render_login'
-  },
+      controller: 'Authentication',
+      action: 'render_login'
+    },
 
   'POST /login': {
-    controller: 'Authentication',
-    action: 'login'
-  },
+      controller: 'Authentication',
+      action: 'login'
+    },
 
   'POST /register': {
       controller: 'Authentication',
       action: 'register'
-  },
+    },
 
   '/register': {
       controller: 'Authentication',
       action: 'render_register'
-  },
+    },
 
   '/login': {
       controller: 'Authentication',
       action: 'render_login'
-  },
+    },
 
   '/profile': {
-    controller:'Authentication',
-    action: 'render_profile'
-  },
+      controller:'Authentication',
+      action: 'render_profile'
+    },
 
   '/home': {
-    controller:'Authentication',
-    action: 'render_homepage'
-},
+      controller:'Authentication',
+      action: 'render_homepage'
+    },
 
-'POST /handle_email': {
-  controller:'Authentication',
-  action: 'handle_email'
-}
+    'POST /handle_email': {
+        controller:'Authentication',
+        action: 'handle_email'
+    },
+
+    'POST /handle_message': {
+        controller:'Authentication',
+        action: 'contactinfo'
+    },
+
+    '/heat': {
+        controller:'Authentication',
+        action: 'render_heat'
+    },
+
+    '/gs': {
+        controller:'Authentication',
+        action: 'render_gs'
+    },
+
+    '/contact': {
+        controller:'Authentication',
+        action: 'render_contact'
+    }
 
   /***************************************************************************
   *                                                                          *

@@ -2,4 +2,6 @@
 
 window.app.controller('home', function($scope, $http, $location, $window) {
     document.title="Home";
+    
+
 })
