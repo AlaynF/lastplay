@@ -90,6 +90,11 @@ module.exports.routes = {
     '/contact': {
         controller:'Authentication',
         action: 'render_contact'
+    },
+
+    'GET /allgames': {
+        controller:'Authentication',
+        action: 'allgames'
     }
 
   /***************************************************************************

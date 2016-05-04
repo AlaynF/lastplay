@@ -10,8 +10,62 @@ var all_users = [
 	{username: 'Alayn', password: 'Alayn'}
 ];
 var contact_info = {};
+var request = require("request");
+var cheerio = require("cheerio");
 
 module.exports = {
+
+	render_homepage: function (req, res) {
+		res.view('homepage', {
+			error_message: ''
+		});
+		res.redirect('/register');
+	},
+
+	render_register: function (req, res) {
+		res.view('register', {
+			error_message: ''
+		});
+	},
+
+	render_login: function (req, res) {
+		res.view('login', {
+			error_message: '',
+			layout: 'login_layout'
+		});
+	},
+
+	render_profile: function (req, res) {
+		var user = all_users[0];
+		res.view('profile', {
+			user: user || {}
+		});
+	},
+
+	render_homepage: function (req, res) {
+		res.view('home', {
+			error_message: ''
+		});
+	},
+
+	render_heat: function (req, res) {
+		res.view('heat', {
+			error_message: '',
+		});
+	},
+
+	render_gs: function (req, res) {
+		res.view('gs', {
+			error_message: '',
+		});
+	},
+
+	render_contact: function (req, res) {
+		res.view('contact', {
+			error_message: '',
+		});
+	},
+
 	login: function (req, res) {
 		var found_user, user_exists = false;
 		var error_message = '';
@@ -74,56 +128,7 @@ module.exports = {
 		all_users.push(user);
 	},
 
-	render_homepage: function (req, res) {
-		res.view('homepage', {
-			error_message: ''
-		});
-		res.redirect('/register');
-	},
 
-	render_register: function (req, res) {
-		res.view('register', {
-			error_message: ''
-		});
-	},
-
-	render_login: function (req, res) {
-		res.view('login', {
-			error_message: '',
-			layout: 'login_layout'
-		});
-	},
-
-	render_profile: function (req, res) {
-		var user = all_users[0];
-		res.view('profile', {
-			user: user || {}
-		});
-	},
-
-	render_homepage: function (req, res) {
-		res.view('home', {
-			error_message: ''
-		});
-	},
-
-	render_heat: function (req, res) {
-		res.view('heat', {
-			error_message: '',
-		});
-	},
-
-	render_gs: function (req, res) {
-		res.view('gs', {
-			error_message: '',
-		});
-	},
-
-	render_contact: function (req, res) {
-		res.view('contact', {
-			error_message: '',
-		});
-	},
 
 	handle_email: function (req, res) {
 		var data = req.body;
@@ -156,7 +161,7 @@ module.exports = {
 				success: false
 			});
 			return;
-			
+
 		}
 
 		smtpTransport.sendMail({  //email options
@@ -177,5 +182,27 @@ module.exports = {
 
 			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
 		});
+	},
+
+
+	allgames: function (req, res) {
+		request({
+    		method: 'GET',
+    		url: 'https://www.google.com/#q=nba+games+today'
+		},
+
+		function(err, response, body) {
+    		if (err) return console.error(err);
+
+			$ = cheerio.load(body);
+    		$('div.tb_f').each(function() {
+            	var team = $(this).find('div._Ec.lr_etc._zh').html()
+				console.log(team)
+				res.json({
+					success: true
+				});
+    		});
+		});
 	}
+
 };

@@ -1,10 +1,46 @@
+<div ng-controller='home'>
+
+    <div style="margin-top:100px" class="container">
+        <div style="width:640px" class="container">
+            <a href="/heat"><img src="/images/HeatvRaptors.jpg"/></a>
+        </div>
+        <div style="width:640px" class="container">
+            <a href="/gs"><img style="width:640px; height:360px" ng-click="heat" src="/images/TBvGS.jpeg"/></a>
+        </div>
+    </div>
 
 
-<div style="margin-top:100px" class="container">
-    <div style="width:640px" class="container">
-        <a href="/heat"><img src="/images/HeatvRaptors.jpg"/></a>
+    <div style="margin-top:100px" class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Teams</th>
+          <th>Record</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Miami Heat @ Toronto Raptors</td>
+          <td>0-0</td>
+          <td class="is-link is-icon">
+            <a href="/heat">
+              <i class="fa fa-link"></i>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Portland Trailblazers @ Golden State Warriors</td>
+          <td>0-0</td>
+          <td class="is-link is-icon">
+            <a href="/gs">
+              <i class="fa fa-link"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     </div>
-    <div style="width:640px" class="container">
-        <a href="/gs"><img style="width:640px; height:360px" ng-click="heat" src="/images/TBvGS.jpeg"/></a>
-    </div>
+
+    
 </div>
