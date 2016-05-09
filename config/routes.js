@@ -77,16 +77,6 @@ module.exports.routes = {
         action: 'contactinfo'
     },
 
-    '/heat': {
-        controller:'Authentication',
-        action: 'render_heat'
-    },
-
-    '/gs': {
-        controller:'Authentication',
-        action: 'render_gs'
-    },
-
     '/contact': {
         controller:'Authentication',
         action: 'render_contact'

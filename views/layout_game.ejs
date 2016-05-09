@@ -96,7 +96,7 @@
                     </a>
                     <a class="button is-success" href="#">
                         <span class="icon">
-                            <i class="fa fa-thumbs-up"></i>
+                            <i class="fa fa-download"></i>
                         </span>
                         <span>Download</span>
                     </a>
@@ -108,9 +108,11 @@
 
         <%- body %>
 
-
-
-
+        <div ng-controller="home">
+            <div style="margin-top:100px;width:960px" class="container">
+                <div id="player"></div>
+            </div>
+        </div>
 
         <!--
         Client-side Templates
@@ -134,7 +136,7 @@
             -->
 
           <!--TEMPLATES-->
-
+          
           <!--TEMPLATES END-->
 
 
@@ -176,9 +178,9 @@
     </body>
 
         <div ng-controller="home" style="margin-top:100px" class="container">
-            <div style="background-color:white" class="tabs is-centered is-boxed is-medium is-fullwidth">
+            <div class="tabs is-centered is-boxed is-medium">
                 <ul>
-                    <li>
+                    <li class="is-active">
                         <a>
                            <span class="icon is-small"><i><img src="images/Baseball.png"/></i></span>
                            <span style="color:black">Baseball</span>
@@ -198,20 +200,8 @@
                     </li>
                     <li>
                         <a>
-                           <span class="icon is-small"><i><img src="images/Football.png"/></i></span>
-                           <span style="color:black">Football</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                           <span class="icon is-small"><i><img src="images/Wrestling.png"/></i></span>
-                           <span style="color:black">Wrestling</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
                             <span class="icon is-small"><i><img src="images/Boxing.png"/></i></span>
-                            <span style="color:black">Boxing / MMA</span>
+                            <span style="color:black">Boxing</span>
                         </a>
                     </li>
                 </ul>
@@ -219,7 +209,7 @@
            <table class="table is-bordered is-striped is-narrow">
                <thead>
                    <tr>
-                       <th style="width:874px">MLB Games</th>
+                       <th>MLB Games</th>
                        <th>Score</th>
                        <th>Link</th>
                    </tr>
@@ -243,13 +233,13 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">NBA Games</th>
+                        <th>NBA Games</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="game in nbagames | filter:myFilter">
+                    <tr ng-repeat="game in nbagames">
                         <td>
                             {{game.away}} @ {{game.home}}
                         </td>
@@ -266,80 +256,16 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">NHL Games</th>
+                        <th>NHL Games</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="game in nhlgames | filter:myFilter" >
+                    <tr ng-repeat="game in nhlgames">
                         <td>
                             {{game.away}} @ {{game.home}}
                         </td>
-                        <td>0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:874px">NFL Games</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr >
-                        <td></td>
-                        <td>0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:874px">Wrestling</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td>0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:874px">Boxing / MMA      </th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
                         <td>0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">

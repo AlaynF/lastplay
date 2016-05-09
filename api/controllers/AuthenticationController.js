@@ -49,22 +49,10 @@ module.exports = {
 		});
 	},
 
-	render_heat: function (req, res) {
-		res.view('heat', {
-			error_message: '',
-			layout: 'layout'
-		});
-	},
-
-	render_gs: function (req, res) {
-		res.view('gs', {
-			error_message: '',
-		});
-	},
-
 	render_contact: function (req, res) {
 		res.view('contact', {
 			error_message: '',
+			layout: 'layout_contact'
 		});
 	},
 
