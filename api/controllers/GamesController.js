@@ -99,7 +99,7 @@ module.exports = {
 				$('.game.link').each(function() {
 					var data = $(this);
 					var away = data.children('.team.away').children('th').text().trim();
-					var home = data.children('.team.home').children().text().trim();
+					var home = data.children('.team.home').children('th').text().trim();
 						var game = {
 							away: away,
 							home: home
