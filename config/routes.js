@@ -92,9 +92,14 @@ module.exports.routes = {
         action: 'render_contact'
     },
 
-    'GET /allgames': {
+    'GET /nbagames': {
         controller:'Authentication',
-        action: 'allgames'
+        action: 'nbagames'
+    },
+
+    'GET /mlbgames': {
+        controller:'Authentication',
+        action: 'mlbgames'
     }
 
   /***************************************************************************

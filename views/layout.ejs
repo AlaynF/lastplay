@@ -2,7 +2,7 @@
 <html>
     <head>
         <title><%=typeof title == 'undefined' ? 'LastPlay' : title%></title>
-        
+
         <!-- Viewport mobile tag for sensible mobile support -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -126,4 +126,53 @@
       <script src="/js/sweetalert.min.js"></script>
       <!--SCRIPTS END-->
     </body>
+
+       <div ng-controller="home" style="margin-top:100px" class="container">
+           <table class="table">
+               <thead>
+                   <tr>
+                       <th>MLB Games</th>
+                       <th>Score</th>
+                       <th>Link</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="game in mlbgames">
+                       <td>
+                           {{game.away}} @ {{game.home}}
+                       </td>
+                       <td>0-0</td>
+                       <td class="is-link is-icon">
+                           <a href="/heat">
+                               <i class="fa fa-link"></i>
+                           </a>
+                       </td>
+                   </tr>
+               </tbody>
+            </table>
+
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NBA Games</th>
+                        <th>Score</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="game in nbagames">
+                        <td>
+                            {{game.away}} @ {{game.home}}
+                        </td>
+                        <td>0-0</td>
+                        <td class="is-link is-icon">
+                            <a href="/heat">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+       </div>
 </html>

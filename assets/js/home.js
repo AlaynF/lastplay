@@ -3,6 +3,7 @@
 window.app.controller('home', function($scope, $http, $location, $window) {
     document.title="Home";
 
+
     window.onload = function () {
 
         flowplayer("#hlsjslive", {
@@ -20,9 +21,16 @@ window.app.controller('home', function($scope, $http, $location, $window) {
         });
     };
 
-    $http.get("/allgames")
-    .then(function(response) {
-        console.log(response)
-        $scope.games = response.data;
+    $http.get('/nbagames').success(function(data) {
+        $scope.nbagames = data;
+
     });
+
+    $http.get('/mlbgames').success(function(data) {
+        $scope.mlbgames = data;
+        
+
+
+    });
+
 });
