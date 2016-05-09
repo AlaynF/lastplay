@@ -51,18 +51,59 @@
 
 
     <body ng-app="superfood">
-    <br>
-        <nav style="margin-left:20px" class="navbar-left is-mobile">
-            <p class="navbar-item has-text-centered">
-                <a style="color:black" class="linkhover" href="/home"><img src="/images/logo.png" alt="" style="height: 55px;"></a>
-            </p>
-            <p class="navbar-item has-text-centered">
-                <a style="color:black" class="linkhover" href="/home">Home</a>
-            </p>
-            <p class="navbar-item has-text-centered">
-                <a style="color:black" class="linkhover" href="/contact">Contact</a>
-            </p>
+        <nav class="nav has-shadow">
+            <div style="margin-left:10px;" class="nav-left">
+                <a href="/home">
+                    <img style="width:147px" src="/images/logo.png">
+                </a>
+            </div>
+            <div class="nav-center">
+                <a class="nav-item" href="#">
+                    <span class="icon">
+                        <i class="fa fa-github"></i>
+                    </span>
+                </a>
+                <a class="nav-item" href="#">
+                    <span class="icon">
+                        <i class="fa fa-twitter"></i>
+                    </span>
+                </a>
+            </div>
+
+            <span class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+
+            <div class="nav-right nav-menu">
+                <a class="nav-item" href="/home">
+                    Home
+                </a>
+                <a class="nav-item" href="/contact">
+                    Contact
+                </a>
+                <a class="nav-item" href="#">
+                    Blog
+                </a>
+
+                <span class="nav-item">
+                    <a class="button" >
+                        <span class="icon">
+                            <i class="fa fa-twitter"></i>
+                        </span>
+                        <span>Tweet</span>
+                    </a>
+                    <a class="button is-success" href="#">
+                        <span class="icon">
+                            <i class="fa fa-download"></i>
+                        </span>
+                        <span>Download</span>
+                    </a>
+                </span>
+            </div>
         </nav>
+
 
 
         <%- body %>
@@ -91,7 +132,7 @@
             -->
 
           <!--TEMPLATES-->
-          
+
           <!--TEMPLATES END-->
 
 
@@ -131,7 +172,35 @@
       <!--SCRIPTS END-->
     </body>
 
-       <div ng-controller="home" style="margin-top:100px" class="container">
+        <div ng-controller="home" style="margin-top:100px" class="container">
+            <div class="tabs is-centered is-boxed is-medium">
+                <ul>
+                    <li class="is-active">
+                        <a>
+                           <span class="icon is-small"><i><img src="images/Baseball.png"/></i></span>
+                           <span style="color:black">Baseball</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="icon is-small"><i><img src="images/Basketball.png"/></i></span>
+                            <span style="color:black">Basketball</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="icon is-small"><i><img src="images/Hockey.png"/></i></span>
+                            <span style="color:black">Hockey</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="icon is-small"><i><img src="images/Boxing.png"/></i></span>
+                            <span style="color:black">Boxing</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
            <table class="table is-bordered is-striped is-narrow">
                <thead>
                    <tr>
@@ -166,6 +235,29 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="game in nbagames">
+                        <td>
+                            {{game.away}} @ {{game.home}}
+                        </td>
+                        <td>0-0</td>
+                        <td class="is-link is-icon">
+                            <a href="/heat">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table is-bordered is-narrow">
+                <thead>
+                    <tr>
+                        <th>NHL Games</th>
+                        <th>Score</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="game in nhlgames">
                         <td>
                             {{game.away}} @ {{game.home}}
                         </td>

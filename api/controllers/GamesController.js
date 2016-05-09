@@ -9,9 +9,10 @@
 
  var stored_mlbgames = [];
  var stored_nbagames = [];
+ var stored_nhlgames = [];
 
 module.exports = {
-	
+
 	render_homepage: function (req, res) {
 		res.view('homepage', {
 			error_message: ''
@@ -122,7 +123,37 @@ module.exports = {
 			stored_mlbgames = mlbgames;
 			res.json(mlbgames);
 		});
-	}
+	},
+
+    nhlgames: function (req, res) {
+		var nhlgames = [];
+
+		if (stored_nbagames.length) {
+			res.json(stored_nhlgames);
+
+			return;
+		}
+
+		request('http://sports.yahoo.com/nhl/scoreboard/', function(err, resp, html){
+    		if(!err && resp.statusCode == 200) {
+				var $ = cheerio.load(html);
+
+				$('.game.pre.link').each(function() {
+					var data = $(this);
+					var away = data.children('.away').text().trim();
+					var home = data.children('.home').text().trim();
+						var game = {
+							away: away,
+							home: home
+						};
+					nhlgames.push(game);
+	        	});
+    		}
+
+			stored_nhlgames = nhlgames;
+			res.json(nhlgames);
+		});
+	},
 
 
 };

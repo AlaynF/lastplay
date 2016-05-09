@@ -15,14 +15,14 @@ window.app.controller('home', function($scope, $http, $location, $window) {
 
     $http.get('games/nbagames').success(function(data) {
         $scope.nbagames = data;
-
     });
 
     $http.get('games/mlbgames').success(function(data) {
         $scope.mlbgames = data;
+    });
 
-
-
+    $http.get('games/nhlgames').success(function(data) {
+        $scope.nhlgames = data;
     });
 
 });
