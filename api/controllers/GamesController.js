@@ -53,6 +53,13 @@ module.exports = {
 		});
 	},
 
+    render_heat: function (req, res) {
+		res.view('heat', {
+			error_message: '',
+			layout: 'layout_game'
+		});
+	},
+
 	nbagames: function (req, res) {
 		var nbagames = [];
 

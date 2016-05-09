@@ -90,7 +90,12 @@ module.exports.routes = {
     'GET /mlbgames': {
         controller:'Games',
         action: 'mlbgames'
-    }
+    },
+
+    '/heat': {
+        controller:'Games',
+        action: 'render_heat'
+    },
 
   /***************************************************************************
   *                                                                          *
