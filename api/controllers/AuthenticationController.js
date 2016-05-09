@@ -13,6 +13,9 @@ var contact_info = {};
 var request = require("request");
 var cheerio = require("cheerio");
 
+
+
+
 module.exports = {
 
 	render_homepage: function (req, res) {
@@ -51,6 +54,7 @@ module.exports = {
 	render_heat: function (req, res) {
 		res.view('heat', {
 			error_message: '',
+			layout: 'layout'
 		});
 	},
 
@@ -186,23 +190,32 @@ module.exports = {
 
 
 	allgames: function (req, res) {
-		request({
-    		method: 'GET',
-    		url: 'https://www.google.com/#q=nba+games+today'
-		},
 
-		function(err, response, body) {
-    		if (err) return console.error(err);
+		target = 'http://sports.yahoo.com/nba/scoreboard/';
 
-			$ = cheerio.load(body);
-    		$('div.tb_f').each(function() {
-            	var team = $(this).find('div._Ec.lr_etc._zh').html()
-				console.log(team)
-				res.json({
-					success: true
+
+		request(target, function(err, resp, body, scope){
+    		if(!err && resp.statusCode == 200) {
+        		var $ = cheerio.load(body);
+				game = [{home: "", away: ""}];
+				this.products = game;
+				$('td.home','#Main').each(function() {
+					var data = $(this);
+            		var home = data.first().children().text().trim();
+            		game.home = home;
+
+        		}),
+
+				$('td.away','#Main').each(function(next) {
+					var data = $(this);
+					var away = data.first().children().text().replace("\n", "").replace("\n", "").trim();
+					game.away = away;
+
 				});
-    		});
+
+				console.log(game)
+
+    		}
 		});
 	}
-
 };

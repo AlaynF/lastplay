@@ -1,3 +1,4 @@
+<div ng-app='board'>
 <div ng-controller='home'>
 
     <div style="margin-top:100px" class="container">
@@ -8,7 +9,7 @@
             <a href="/gs"><img style="width:640px; height:360px" ng-click="heat" src="/images/TBvGS.jpeg"/></a>
         </div>
     </div>
-
+ {{games}}
 
     <div style="margin-top:100px" class="container">
     <table class="table">
@@ -19,9 +20,12 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Miami Heat @ Toronto Raptors</td>
+      <tbody ng-controller="Authentication as score">
+
+        <tr ng-repeat="game in score.products">
+          <td>{{game.name}}
+           {{game.away}}</td>
+         {{game[0].home}} vs {{game[0].away}}
           <td>0-0</td>
           <td class="is-link is-icon">
             <a href="/heat">
@@ -42,5 +46,5 @@
     </table>
     </div>
 
-    
+
 </div>

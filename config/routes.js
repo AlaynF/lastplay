@@ -32,37 +32,37 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
+    '/': {
       controller: 'Authentication',
       action: 'render_login'
     },
 
-  'POST /login': {
+    'POST /login': {
       controller: 'Authentication',
       action: 'login'
     },
 
-  'POST /register': {
+    'POST /register': {
       controller: 'Authentication',
       action: 'register'
     },
 
-  '/register': {
+    '/register': {
       controller: 'Authentication',
       action: 'render_register'
     },
 
-  '/login': {
+    '/login': {
       controller: 'Authentication',
       action: 'render_login'
     },
 
-  '/profile': {
+    '/profile': {
       controller:'Authentication',
       action: 'render_profile'
     },
 
-  '/home': {
+    '/home': {
       controller:'Authentication',
       action: 'render_homepage'
     },
