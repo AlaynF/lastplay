@@ -3,32 +3,24 @@
 window.app.controller('home', function($scope, $http, $location, $window) {
     document.title="Home";
 
-
-    window.onload = function () {
-
-        flowplayer("#hlsjslive", {
-            splash: true,
-            embed: false,
-            ratio: 9/16,
-            clip: {
-                live: true,
-                sources: [
-                    { type: "application/x-mpegURL",
-                      src: "http://coolstreamz.x10host.com/stream/stream.m3u8"
-                    }
-                ]
-            }
+    window.onload = function(){
+        var player = new Clappr.Player({
+            source: "http://xrxs.net/video/live-p12netw-4728.m3u8",
+            parentId: "#player",
+            poster: 'http://wallpaperhd.press/wp-content/uploads/2016/02/Sports-Wallpapers-L3O.jpg',
+            width: "960px",
+            height: "400px"
         });
-    };
+    }
 
-    $http.get('/nbagames').success(function(data) {
+    $http.get('games/nbagames').success(function(data) {
         $scope.nbagames = data;
 
     });
 
-    $http.get('/mlbgames').success(function(data) {
+    $http.get('games/mlbgames').success(function(data) {
         $scope.mlbgames = data;
-        
+
 
 
     });

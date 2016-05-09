@@ -12,8 +12,7 @@ var all_users = [
 var contact_info = {};
 var request = require("request");
 var cheerio = require("cheerio");
-var nbagames = [];
-var mlbgames = [];
+
 
 module.exports = {
 
@@ -186,48 +185,4 @@ module.exports = {
 			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
 		});
 	},
-
-	nbagames: function (req, res) {
-		var nbagames = [];
-
-		request('http://sports.yahoo.com/nba/scoreboard/', function(err, resp, html){
-    		if(!err && resp.statusCode == 200) {
-				var $ = cheerio.load(html);
-
-				$('.game.pre.link').each(function() {
-					var data = $(this);
-					var away = data.children('.away').text().trim();
-					var home = data.children('.home').text().trim();
-						var game = {
-							away: away,
-							home: home
-						};
-					nbagames.push(game);
-	        	});
-    		}
-			res.json(nbagames);
-		});
-	},
-
-	mlbgames: function (req, res) {
-
-		request('http://sports.yahoo.com/mlb/scoreboard/', function(err, resp, html){
-    		if(!err && resp.statusCode == 200) {
-				var $ = cheerio.load(html);
-
-				$('.game.link').each(function() {
-					var data = $(this);
-					var away = data.children('.team.away').children('th').text().trim();
-					var home = data.children('.team.home').children().text().trim();
-						var game = {
-							away: away,
-							home: home
-						};
-					mlbgames.push(game);
-	        	});
-    		}
-			console.log(mlbgames);
-			res.json(mlbgames);
-		});
-	}
 };

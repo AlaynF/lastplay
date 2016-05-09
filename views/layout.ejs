@@ -16,7 +16,11 @@
         <script src="//releases.flowplayer.org/6.0.5/flowplayer.min.js"></script>
         <!-- Flowplayer hlsjs engine -->
         <script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
                 <!--
+
+                <script src="video.js"></script>
+                <script src="videojs.hls.min.js"></script>
         Stylesheets and Preprocessors
         ==============================
 
@@ -48,7 +52,7 @@
 
     <body ng-app="superfood">
     <br>
-        <nav style="margin-left:20px" class="navbar-left">
+        <nav style="margin-left:20px" class="navbar-left is-mobile">
             <p class="navbar-item has-text-centered">
                 <a style="color:black" class="linkhover" href="/home"><img src="/images/logo.png" alt="" style="height: 55px;"></a>
             </p>
@@ -128,7 +132,7 @@
     </body>
 
        <div ng-controller="home" style="margin-top:100px" class="container">
-           <table class="table">
+           <table class="table is-bordered is-striped is-narrow">
                <thead>
                    <tr>
                        <th>MLB Games</th>
@@ -151,8 +155,8 @@
                </tbody>
             </table>
 
-            
-            <table class="table">
+
+            <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
                         <th>NBA Games</th>

@@ -93,12 +93,12 @@ module.exports.routes = {
     },
 
     'GET /nbagames': {
-        controller:'Authentication',
+        controller:'Games',
         action: 'nbagames'
     },
 
     'GET /mlbgames': {
-        controller:'Authentication',
+        controller:'Games',
         action: 'mlbgames'
     }
 
