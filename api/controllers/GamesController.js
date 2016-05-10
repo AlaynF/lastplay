@@ -10,6 +10,8 @@
  var stored_mlbgames = [];
  var stored_nbagames = [];
  var stored_nhlgames = [];
+ var nbaTitles = [];
+ var nbaLinks = [];
 
 module.exports = {
 
@@ -150,5 +152,33 @@ module.exports = {
 		});
 	},
 
+    nbastuff: function (req, res) {
 
+
+		//if (stored_nbagames.length) {
+		//	res.json(stored_nbagames);
+
+		//	return;
+		//}
+
+		request('https://www.reddit.com/r/nbastreams/', function(err, resp, html){
+    		if(!err && resp.statusCode == 200) {
+				var $ = cheerio.load(html);
+
+				$('p.title').each(function() {
+					var data = $(this);
+					var articleLink = data.children().attr('href');
+                    var articleTitle = data.children().text().replace('(self.nbastreams)', '').trim();
+
+					nbaTitles.push(articleTitle);
+                    nbaLinks.push(articleLink);
+
+
+	        	});
+    		}
+			res.json(nbaTitles,nbaLinks);
+            var value = nbaTitles.indexOf("Nba Tv HD stream");
+            console.log(nbaTitles)
+		});
+	}
 };
