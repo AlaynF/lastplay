@@ -6,12 +6,11 @@
  */
  var request = require("request");
  var cheerio = require("cheerio");
-
+ var URL = require('url-parse');
  var stored_mlbgames = [];
  var stored_nbagames = [];
  var stored_nhlgames = [];
- var nbaTitles = [];
- var nbaLinks = [];
+
 
 module.exports = {
 
@@ -154,31 +153,73 @@ module.exports = {
 
     nbastuff: function (req, res) {
 
+        var START_URL = "https://www.reddit.com/r/nbastreams/";
+        var SEARCH_WORD = "NBA";
+        var MAX_PAGES_TO_VISIT = 5;
 
-		//if (stored_nbagames.length) {
-		//	res.json(stored_nbagames);
+        var pagesVisited = {};
+        var numPagesVisited = 0;
+        var pagesToVisit = [];
+        var url = new URL(START_URL);
+        var baseUrl = url.protocol + "//" + url.hostname;
+        pagesToVisit.push(START_URL);
+        crawl();
 
-		//	return;
-		//}
+        function crawl() {
+            if(numPagesVisited >= MAX_PAGES_TO_VISIT) {
+                console.log("Reached max limit of number of pages to visit.");
+                return;
+            }
+            var nextPage = pagesToVisit.pop();
+            if (nextPage in pagesVisited) {
+                // We've already visited this page, so repeat the crawl
+                crawl();
+            } else {
+                // New page we haven't visited
+                visitPage(nextPage, crawl);
+            }
+        }
 
-		request('https://www.reddit.com/r/nbastreams/', function(err, resp, html){
-    		if(!err && resp.statusCode == 200) {
-				var $ = cheerio.load(html);
+        function visitPage(url, callback) {
+          // Add page to our set
+            pagesVisited[url] = true;
+            numPagesVisited++;
 
-				$('p.title').each(function() {
-					var data = $(this);
-					var articleLink = data.children().attr('href');
-                    var articleTitle = data.children().text().replace('(self.nbastreams)', '').trim();
+            // Make the request
+            console.log("Visiting page " + url);
+            request(url, function(error, response, body) {
+                // Check status code (200 is HTTP OK)
+                console.log("Status code: " + response.statusCode);
+                if(response.statusCode !== 200) {
+                    callback();
+                    return;
+                }
+                    // Parse the document body
+                var $ = cheerio.load(body);
+                var isWordFound = searchForWord($, SEARCH_WORD);
+                if(isWordFound) {
+                    console.log('Word ' + SEARCH_WORD + ' found at page ' + url);
+                } else {
+                    collectInternalLinks($);
+                    // In this short program, our callback is just calling crawl()
+                    callback();
+                }
+            });
+        }
 
-					nbaTitles.push(articleTitle);
-                    nbaLinks.push(articleLink);
+        function searchForWord($, word) {
+            var bodyText = $('html > body').text().toLowerCase();
+            return(bodyText.indexOf(word.toLowerCase()) !== -1);
+        }
 
+        function collectInternalLinks($) {
+            var relativeLinks = $("a[href^='/']");
+            console.log("Found " + relativeLinks.length + " relative links on page");
+            relativeLinks.each(function() {
+                pagesToVisit.push(baseUrl + $(this).attr('href'));
+            });
+        }
 
-	        	});
-    		}
-			res.json(nbaTitles,nbaLinks);
-            var value = nbaTitles.indexOf("Nba Tv HD stream");
-            console.log(nbaTitles)
-		});
-	}
+    }
+
 };
