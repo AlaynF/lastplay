@@ -97,6 +97,11 @@ module.exports.routes = {
         action: 'nbastuff'
     },
 
+    'GET /redditstuff': {
+        controller:'Reddit',
+        action: 'redditstuff'
+    },
+
     '/heat': {
         controller:'Games',
         action: 'render_heat'
