@@ -44,14 +44,34 @@
                 </a>
             </div>
             <div class="nav-center">
-                <a class="nav-item" href="#">
-                    <span class="icon">
-                        <i class="fa fa-github"></i>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="baseball" value="baseball" class="icon">
+                        <i><img src="images/Baseball.png"/></i>
                     </span>
                 </a>
-                <a class="nav-item" href="#">
-                    <span class="icon">
-                        <i class="fa fa-twitter"></i>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="basketball" value="basketball" class="icon">
+                        <i><img src="images/Basketball.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="hockey" value="hockey" class="icon">
+                        <i><img src="images/Hockey.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="football" value="football" class="icon">
+                        <i><img src="images/Football.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="wrestling" value="wrestling" class="icon">
+                        <i><img src="images/Wrestling.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="boxing" value="boxing" class="icon">
+                        <i><img src="images/Boxing.png"/></i>
                     </span>
                 </a>
             </div>
@@ -68,9 +88,6 @@
                 </a>
                 <a class="nav-item" href="/contact">
                     Contact
-                </a>
-                <a class="nav-item" href="#">
-                    Blog
                 </a>
 
                 <span class="nav-item">
@@ -162,185 +179,27 @@
     </body>
 
         <div ng-controller="home" style="margin-top:100px" class="container">
-            <div style="background-color:white" class="tabs is-centered is-boxed is-medium is-fullwidth">
-                <ul>
-                    <li>
-                        <a>
-                           <span class="icon is-small"><i><img src="images/Baseball.png"/></i></span>
-                           <span style="color:black">Baseball</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="icon is-small"><i><img src="images/Basketball.png"/></i></span>
-                            <span style="color:black">Basketball</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="icon is-small"><i><img src="images/Hockey.png"/></i></span>
-                            <span style="color:black">Hockey</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                           <span class="icon is-small"><i><img src="images/Football.png"/></i></span>
-                           <span style="color:black">Football</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                           <span class="icon is-small"><i><img src="images/Wrestling.png"/></i></span>
-                           <span style="color:black">Wrestling</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="icon is-small"><i><img src="images/Boxing.png"/></i></span>
-                            <span style="color:black">Boxing / MMA</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
             <table class="table is-bordered is-striped is-narrow">
                 <thead>
                     <tr>
-                       <th style="width:800px">MLB Games</th>
+                       <th style="width:600px">All Games</th>
+                       <th style="width:200px;text-align: center">Sport</th>
                        <th style="width:150px;text-align: center">Time</th>
                        <th>Score</th>
                        <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="game in mlbgames">
+                    <tr ng-repeat="game in allgames | filter: nbafilter">
                         <td>
                            {{game.away}} @ {{game.home}}
                         </td>
-                        <td style="text-align: center"></td>
+                        <td style="text-align: center"><i style="width:20px"><img src='{{game.pic}}'/></i>{{game.sport}}</td>
+                        <td style="text-align: center">{{game.time}}</td>
                         <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:800px">NBA Games</th>
-                        <th style="width:150px;text-align: center">Time</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="game in nbagames | filter:myFilter">
-                        <td>
-                            {{game.away}} @ {{game.home}}
-                        </td>
-                        <td style="text-align: center">{{game.time}}</td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:800px">NHL Games</th>
-                        <th style="width:150px;text-align: center">Time</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="game in nhlgames | filter:myFilter" >
-                        <td>
-                            {{game.away}} @ {{game.home}}
-                        </td>
-                        <td style="text-align: center">{{game.time}}</td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:800px">NFL Games</th>
-                        <th style="width:150px;text-align: center">Time</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr >
-                        <td></td>
-                        <td style="text-align: center"></td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:800px">Wrestling</th>
-                        <th style="width:150px;text-align: center">Time</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td style="text-align: center"></td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="table is-bordered is-narrow">
-                <thead>
-                    <tr>
-                        <th style="width:800px">Boxing / MMA      </th>
-                        <th style="width:150px;text-align: center">Time</th>
-                        <th>Score</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td style="text-align: center"></td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
-                            <a href="/heat">
-                                <i class="fa fa-link"></i>
                             </a>
                         </td>
                     </tr>

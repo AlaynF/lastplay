@@ -13,9 +13,7 @@ var URL = require('url-parse');
 
 
 
-var stored_mlbgames = [];
-var stored_nbagames = [];
-var stored_nhlgames = [];
+var stored_allgames = [];
 
 var mlbgameshome = [];
 var nbagameshome = [];
@@ -71,77 +69,11 @@ module.exports = {
 		});
 	},
 
-	nbagames: function (req, res) {
-		var nbagames = [];
+    allgames: function (req, res) {
+		var allgames = [];
 
-		if (stored_nbagames.length) {
-			res.json(stored_nbagames);
-
-			return;
-		}
-
-		request('http://sports.yahoo.com/nba/scoreboard/', function(err, resp, html){
-    		if(!err && resp.statusCode == 200) {
-				var $ = cheerio.load(html);
-
-				$('.game.pre.link').each(function() {
-					var data = $(this);
-					var away = data.children('.away').text().trim();
-					var home = data.children('.home').text().trim();
-					var timedata = data.children('.summary').text().trim();
-					var time = timedata.slice(0,12);
-						var game = {
-							away: away,
-							time: time,
-							home: home
-						};
-					console.log(time);
-					nbagames.push(game);
-                    nbagameshome.push(home);
-	        	});
-    		}
-
-			stored_nbagames = nbagames;
-			res.json(nbagames);
-		});
-	},
-
-	mlbgames: function (req, res) {
-		var mlbgames = [];
-
-		if (stored_mlbgames.length) {
-			res.json(stored_mlbgames);
-
-			return;
-		}
-
-		request('http://sports.yahoo.com/mlb/scoreboard/', function(err, resp, html){
-    		if(!err && resp.statusCode == 200) {
-				var $ = cheerio.load(html);
-
-				$('.game.link').each(function() {
-					var data = $(this);
-					var away = data.children('.team.away').children('th').text().trim();
-					var home = data.children('.team.home').children('th').text().trim();
-						var game = {
-							away: away,
-							home: home
-						};
-					mlbgames.push(game);
-                    mlbgameshome.push(home);
-	        	});
-    		}
-			stored_mlbgames = mlbgames;
-			res.json(mlbgames);
-		});
-	},
-
-    nhlgames: function (req, res) {
-		var nhlgames = [];
-
-		if (stored_nbagames.length) {
-			res.json(stored_nhlgames);
-
+		if (stored_allgames.length) {
+			res.json(stored_allgames);
 			return;
 		}
 
@@ -158,16 +90,70 @@ module.exports = {
 						var game = {
 							away: away,
 							time: time,
-							home: home
+							home: home,
+							sport: "Hockey",
+							pic: "images/Hockey.png",
 						};
-					nhlgames.push(game);
+					allgames.push(game);
                     nhlgameshome.push(home);
 	        	});
     		}
-
-			stored_nhlgames = nhlgames;
-			res.json(nhlgames);
+			stored_allgames = allgames;
 		});
+
+		request('http://sports.yahoo.com/mlb/scoreboard/', function(err, resp, html){
+    		if(!err && resp.statusCode == 200) {
+				var $ = cheerio.load(html);
+
+				$('.game.link').each(function() {
+					var data = $(this);
+					var away = data.children('.team.away').children('th').text().trim();
+					var home = data.children('.team.home').children('th').text().trim();
+					var timedata = data.children('.team.away').text().trim();
+					var timeplace = timedata.search(/\d/);
+					var timeslice = timedata.slice(-40,100);
+					var timetrim = timeslice.trim();
+					var time = timetrim.slice(0,12);
+						var game = {
+							away: away,
+							home: home,
+							time: time,
+							sport: "Baseball",
+							pic: "images/Baseball.png",
+						};
+					allgames.push(game);
+                    mlbgameshome.push(home);
+	        	});
+    		}
+			stored_allgames = allgames;
+		});
+
+		request('http://sports.yahoo.com/nba/scoreboard/', function(err, resp, html){
+    		if(!err && resp.statusCode == 200) {
+				var $ = cheerio.load(html);
+
+				$('.game.pre.link').each(function() {
+					var data = $(this);
+					var away = data.children('.away').text().trim();
+					var home = data.children('.home').text().trim();
+					var timedata = data.children('.summary').text().trim();
+					var time = timedata.slice(0,12);
+						var game = {
+							away: away,
+							time: time,
+							home: home,
+							sport: "Basketball",
+							pic: "images/Basketball.png",
+						};
+					allgames.push(game);
+                    nbagameshome.push(home);
+	        	});
+    		}
+			stored_allgames = allgames;
+			res.json(allgames);
+		});
+
+
 	},
 
 	redditstuff: function(req, res) {
@@ -209,4 +195,5 @@ module.exports = {
 
 
 	}
+
 }
