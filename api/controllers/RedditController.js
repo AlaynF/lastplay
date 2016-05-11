@@ -64,8 +64,14 @@ module.exports = {
 
     render_heat: function (req, res) {
 		res.view('heat', {
+			error_message: ''
+		});
+	},
+
+	render_baseball: function (req, res) {
+		res.view('baseball', {
 			error_message: '',
-			layout: 'layout_game'
+			layout: 'layout_contact'
 		});
 	},
 

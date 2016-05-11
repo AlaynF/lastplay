@@ -10,7 +10,7 @@ var all_users = [
 	{username: 'Alayn', password: 'Alayn'}
 ];
 var contact_info = {};
-var request = require("request");
+var = require("request");
 var cheerio = require("cheerio");
 
 

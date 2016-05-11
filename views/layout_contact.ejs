@@ -58,14 +58,34 @@
                 </a>
             </div>
             <div class="nav-center">
-                <a class="nav-item" href="#">
-                    <span class="icon">
-                        <i class="fa fa-github"></i>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="baseball" value="baseball" class="icon">
+                        <i><img src="images/Baseball.png"/></i>
                     </span>
                 </a>
-                <a class="nav-item" href="#">
-                    <span class="icon">
-                        <i class="fa fa-twitter"></i>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="basketball" value="basketball" class="icon">
+                        <i><img src="images/Basketball.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="hockey" value="hockey" class="icon">
+                        <i><img src="images/Hockey.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="football" value="football" class="icon">
+                        <i><img src="images/Football.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="wrestling" value="wrestling" class="icon">
+                        <i><img src="images/Wrestling.png"/></i>
+                    </span>
+                </a>
+                <a ng-click="sportfilter" class="nav-item" href="#">
+                    <span ng-model="sport" name="boxing" value="boxing" class="icon">
+                        <i><img src="images/Boxing.png"/></i>
                     </span>
                 </a>
             </div>
@@ -83,9 +103,6 @@
                 <a class="nav-item" href="/contact">
                     Contact
                 </a>
-                <a class="nav-item" href="#">
-                    Blog
-                </a>
 
                 <span class="nav-item">
                     <a class="button" >
@@ -96,7 +113,7 @@
                     </a>
                     <a class="button is-success" href="#">
                         <span class="icon">
-                            <i class="fa fa-download"></i>
+                            <i class="fa fa-thumbs-up"></i>
                         </span>
                         <span>Download</span>
                     </a>
@@ -173,5 +190,5 @@
       <!--SCRIPTS END-->
     </body>
 
-        
+
 </html>

@@ -2,18 +2,20 @@
 
 window.app.controller('home', function($scope, $http, $location, $window) {
     document.title="Home";
+    var allgames =[];
+    $scope.allgames = allgames;
 
-    $http.get('reddit/allgames').success(function(data) {
-        $scope.allgames = data;
+    $http.get('reddit/allgames').success(function(data, callback) {
+        allgames = data;
+        $scope.dataJson = allgames;
+
+        $window.callback(function(){
+            $scope.baseball = allgames.filter( function(game){return (game.sport=="baseball");
+            })
+            console.log($scope.baseball)
+        });
     });
 
-    $scope.sport = {};
-
-    $scope.sportFilter = function (game) {
-        console.log(game, $scope.sport);
-        return !$scope.sport ?
-                   game : (game.sport == $scope.sport);
-    };
 
     // $http.get('reddit/mlbgames').success(function(data) {
     //     $scope.mlbgames = data;

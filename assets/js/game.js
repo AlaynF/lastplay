@@ -1,5 +1,11 @@
 window.app.controller('game', function($scope, $http, $location, $window) {
     document.title="LastPlay";
+    $scope.sport = {}
+
+    $http.get('reddit/allgames').success(function(data) {
+        $scope.allgames = data;
+    });
+
 
     window.onload = function(){
         var player = new Clappr.Player({

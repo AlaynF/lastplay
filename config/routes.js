@@ -93,8 +93,13 @@ module.exports.routes = {
     },
 
     '/heat': {
-        controller:'Games',
+        controller:'reddit',
         action: 'render_heat'
+    },
+
+    '/baseball': {
+        controller:'reddit',
+        action: 'render_baseball'
     }
 
   /***************************************************************************

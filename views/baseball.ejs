@@ -1,0 +1,26 @@
+<div ng-controller="home" style="margin-top:100px" class="container">
+    <table class="table is-bordered is-striped is-narrow">
+        <thead>
+            <tr>
+                <th style="width:150px;text-align: center">Sport</th>
+                <th style="text-align: center" style="width:600px">Live Event</th>
+                <th style="width:150px;text-align: center">Time</th>
+                <th style="text-align: center" >Score</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ball in baseball">
+                <td style="text-align: center" ><i style="width:20px"><img ng-src='{{game.pic}}'/></i>  {{game.sport}}</td>
+                <td style="text-align: center"> {{game.away}} @ {{game.home}}</td>
+                <td style="text-align: center">{{game.time}}</td>
+                <td style="text-align: center">0-0</td>
+                <td class="is-link is-icon">
+                    <a href="#">
+                       <i class="fa fa-link"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

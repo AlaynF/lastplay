@@ -5,7 +5,10 @@
 
         <!-- Viewport mobile tag for sensible mobile support -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
                 <!--
         Stylesheets and Preprocessors
         ==============================
@@ -44,32 +47,32 @@
                 </a>
             </div>
             <div class="nav-center">
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                <a ng-model="sport" class="nav-item" href="/baseball">
                     <span ng-model="sport" name="baseball" value="baseball" class="icon">
                         <i><img src="images/Baseball.png"/></i>
                     </span>
                 </a>
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                <a ng-model="sport" class="nav-item" href="/basketball">
                     <span ng-model="sport" name="basketball" value="basketball" class="icon">
                         <i><img src="images/Basketball.png"/></i>
                     </span>
                 </a>
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                <a ng-model="sport" class="nav-item" href="/hockey">
                     <span ng-model="sport" name="hockey" value="hockey" class="icon">
                         <i><img src="images/Hockey.png"/></i>
                     </span>
                 </a>
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                <a ng-model="sport" class="nav-item" href="/football">
                     <span ng-model="sport" name="football" value="football" class="icon">
                         <i><img src="images/Football.png"/></i>
                     </span>
                 </a>
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                <a ng-model="sport" class="nav-item" href="/wrestling">
                     <span ng-model="sport" name="wrestling" value="wrestling" class="icon">
                         <i><img src="images/Wrestling.png"/></i>
                     </span>
-                </a>
-                <a ng-click="sportfilter" class="nav-item" href="#">
+                </a ng-model="sport">
+                <a class="nav-item" href="/boxing">
                     <span ng-model="sport" name="boxing" value="boxing" class="icon">
                         <i><img src="images/Boxing.png"/></i>
                     </span>
@@ -137,7 +140,7 @@
             -->
 
           <!--TEMPLATES-->
-
+          
           <!--TEMPLATES END-->
 
 
@@ -191,7 +194,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="game in allgames | filter: nbafilter">
-                        <td style="text-align: center" ><i style="width:20px"><img src='{{game.pic}}'/></i>  {{game.sport}}</td>
+                        <td style="text-align: center" ><i style="width:20px"><img ng-src='{{game.pic}}'/></i>  {{game.sport}}</td>
                         <td style="text-align: center"> {{game.away}} @ {{game.home}}</td>
                         <td style="text-align: center">{{game.time}}</td>
                         <td style="text-align: center">0-0</td>
