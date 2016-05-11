@@ -137,7 +137,7 @@
             -->
 
           <!--TEMPLATES-->
-          
+
           <!--TEMPLATES END-->
 
 
@@ -182,19 +182,17 @@
             <table class="table is-bordered is-striped is-narrow">
                 <thead>
                     <tr>
-                       <th style="width:600px">All Games</th>
-                       <th style="width:200px;text-align: center">Sport</th>
-                       <th style="width:150px;text-align: center">Time</th>
-                       <th>Score</th>
-                       <th>Link</th>
+                        <th style="width:150px;text-align: center">Sport</th>
+                        <th style="text-align: center" style="width:600px">Live Event</th>
+                        <th style="width:150px;text-align: center">Time</th>
+                        <th style="text-align: center" >Score</th>
+                        <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="game in allgames | filter: nbafilter">
-                        <td>
-                           {{game.away}} @ {{game.home}}
-                        </td>
-                        <td style="text-align: center"><i style="width:20px"><img src='{{game.pic}}'/></i>{{game.sport}}</td>
+                        <td style="text-align: center" ><i style="width:20px"><img src='{{game.pic}}'/></i>  {{game.sport}}</td>
+                        <td style="text-align: center"> {{game.away}} @ {{game.home}}</td>
                         <td style="text-align: center">{{game.time}}</td>
                         <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
