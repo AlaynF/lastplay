@@ -86,10 +86,12 @@ module.exports = {
 					var data = $(this);
 					var away = data.children('.away').text().trim();
 					var home = data.children('.home').text().trim();
+                    var time = data.children('.time').text().trim();
 						var game = {
 							away: away,
 							home: home
 						};
+                    console.log(time);
 					nbagames.push(game);
                     nbagameshome.push(home);
 	        	});

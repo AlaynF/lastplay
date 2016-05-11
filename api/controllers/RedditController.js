@@ -88,10 +88,14 @@ module.exports = {
 					var data = $(this);
 					var away = data.children('.away').text().trim();
 					var home = data.children('.home').text().trim();
+					var timedata = data.children('.summary').text().trim();
+					var time = timedata.slice(0,12);
 						var game = {
 							away: away,
+							time: time,
 							home: home
 						};
+					console.log(time);
 					nbagames.push(game);
                     nbagameshome.push(home);
 	        	});
@@ -149,8 +153,11 @@ module.exports = {
 					var data = $(this);
 					var away = data.children('.away').text().trim();
 					var home = data.children('.home').text().trim();
+					var timedata = data.children('.summary').text().trim();
+					var time = timedata.slice(0,12);
 						var game = {
 							away: away,
+							time: time,
 							home: home
 						};
 					nhlgames.push(game);
@@ -172,7 +179,7 @@ module.exports = {
 			Reddit.subreddit("mlbstreams").search(mlbgameshome[x]).limit(30).exec(function(data){
 				// Some super awesome code
 				// We can even search through a subreddit:
-				console.log(data);
+
 				mlb.push(data);
 			});
 

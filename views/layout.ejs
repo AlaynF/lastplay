@@ -202,34 +202,36 @@
                     </li>
                 </ul>
             </div>
-           <table class="table is-bordered is-striped is-narrow">
-               <thead>
-                   <tr>
-                       <th style="width:874px">MLB Games</th>
+            <table class="table is-bordered is-striped is-narrow">
+                <thead>
+                    <tr>
+                       <th style="width:800px">MLB Games</th>
+                       <th style="width:150px;text-align: center">Time</th>
                        <th>Score</th>
                        <th>Link</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr ng-repeat="game in mlbgames">
-                       <td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="game in mlbgames">
+                        <td>
                            {{game.away}} @ {{game.home}}
-                       </td>
-                       <td>0-0</td>
-                       <td class="is-link is-icon">
-                           <a href="/heat">
+                        </td>
+                        <td style="text-align: center"></td>
+                        <td style="text-align: center">0-0</td>
+                        <td class="is-link is-icon">
+                            <a href="/heat">
                                <i class="fa fa-link"></i>
-                           </a>
-                       </td>
-                   </tr>
-               </tbody>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-
 
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">NBA Games</th>
+                        <th style="width:800px">NBA Games</th>
+                        <th style="width:150px;text-align: center">Time</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
@@ -239,7 +241,8 @@
                         <td>
                             {{game.away}} @ {{game.home}}
                         </td>
-                        <td>0-0</td>
+                        <td style="text-align: center">{{game.time}}</td>
+                        <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                 <i class="fa fa-link"></i>
@@ -252,7 +255,8 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">NHL Games</th>
+                        <th style="width:800px">NHL Games</th>
+                        <th style="width:150px;text-align: center">Time</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
@@ -262,7 +266,8 @@
                         <td>
                             {{game.away}} @ {{game.home}}
                         </td>
-                        <td>0-0</td>
+                        <td style="text-align: center">{{game.time}}</td>
+                        <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                 <i class="fa fa-link"></i>
@@ -275,7 +280,8 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">NFL Games</th>
+                        <th style="width:800px">NFL Games</th>
+                        <th style="width:150px;text-align: center">Time</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
@@ -283,7 +289,8 @@
                 <tbody>
                     <tr >
                         <td></td>
-                        <td>0-0</td>
+                        <td style="text-align: center"></td>
+                        <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                 <i class="fa fa-link"></i>
@@ -296,7 +303,8 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">Wrestling</th>
+                        <th style="width:800px">Wrestling</th>
+                        <th style="width:150px;text-align: center">Time</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
@@ -304,7 +312,8 @@
                 <tbody>
                     <tr>
                         <td></td>
-                        <td>0-0</td>
+                        <td style="text-align: center"></td>
+                        <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                 <i class="fa fa-link"></i>
@@ -318,7 +327,8 @@
             <table class="table is-bordered is-narrow">
                 <thead>
                     <tr>
-                        <th style="width:874px">Boxing / MMA      </th>
+                        <th style="width:800px">Boxing / MMA      </th>
+                        <th style="width:150px;text-align: center">Time</th>
                         <th>Score</th>
                         <th>Link</th>
                     </tr>
@@ -326,7 +336,8 @@
                 <tbody>
                     <tr>
                         <td></td>
-                        <td>0-0</td>
+                        <td style="text-align: center"></td>
+                        <td style="text-align: center">0-0</td>
                         <td class="is-link is-icon">
                             <a href="/heat">
                                 <i class="fa fa-link"></i>
