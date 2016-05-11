@@ -100,6 +100,16 @@ module.exports.routes = {
     '/baseball': {
         controller:'reddit',
         action: 'render_baseball'
+    },
+
+    '/basketball': {
+        controller:'reddit',
+        action: 'render_basketball'
+    },
+
+    '/hockey': {
+        controller:'reddit',
+        action: 'render_hockey'
     }
 
   /***************************************************************************

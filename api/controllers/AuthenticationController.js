@@ -10,7 +10,7 @@ var all_users = [
 	{username: 'Alayn', password: 'Alayn'}
 ];
 var contact_info = {};
-var = require("request");
+var request = require("request");
 var cheerio = require("cheerio");
 
 
@@ -172,5 +172,5 @@ module.exports = {
 
 			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
 		});
-	},
-};
+	}
+}

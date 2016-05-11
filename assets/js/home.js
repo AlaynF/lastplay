@@ -2,28 +2,28 @@
 
 window.app.controller('home', function($scope, $http, $location, $window) {
     document.title="Home";
-    var allgames =[];
-    $scope.allgames = allgames;
+    $scope.allgames;
 
-    $http.get('reddit/allgames').success(function(data, callback) {
-        allgames = data;
-        $scope.dataJson = allgames;
+    $http.get('reddit/allgames').success(function(data) {
+        $scope.allgames = data;
 
-        $window.callback(function(){
-            $scope.baseball = allgames.filter( function(game){return (game.sport=="baseball");
-            })
-            console.log($scope.baseball)
+        $scope.dataJson = $scope.allgames;
+
+        $scope.baseball = $scope.allgames.filter( function(game){
+            return ( game.sport=="Baseball" );
         });
+
+        $scope.basketball = $scope.allgames.filter( function(game){
+            return ( game.sport=="Basketball" );
+        });
+
+        $scope.hockey = $scope.allgames.filter( function(game){
+            return ( game.sport=="Hockey" );
+        });
+
+        
     });
 
-
-    // $http.get('reddit/mlbgames').success(function(data) {
-    //     $scope.mlbgames = data;
-    // });
-    //
-    // $http.get('reddit/nhlgames').success(function(data) {
-    //     $scope.nhlgames = data;
-    // });
 
     // $http.get('games/nbastuff').success(function(data) {
     //     $scope.nbastuff = data;
@@ -31,14 +31,5 @@ window.app.controller('home', function($scope, $http, $location, $window) {
 
     // $http.get('reddit/redditstuff').success(function(data) {
     // });
-
-    // $scope.nbaFilter = function(game) {
-    //     return (nbagames.sport == "nba");
-    // };
-
-    $scope.nbaFilter = function(game) {
-        return ($scope.nbagames.sport == "nba");
-    };
-
 
 });

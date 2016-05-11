@@ -75,6 +75,20 @@ module.exports = {
 		});
 	},
 
+	render_basketball: function (req, res) {
+		res.view('basketball', {
+			error_message: '',
+			layout: 'layout_contact'
+		});
+	},
+
+	render_hockey: function (req, res) {
+		res.view('hockey', {
+			error_message: '',
+			layout: 'layout_contact'
+		});
+	},
+
     allgames: function (req, res) {
 		var allgames = [];
 
@@ -160,46 +174,46 @@ module.exports = {
 		});
 
 
-	},
-
-	redditstuff: function(req, res) {
-		var x;
-		var mlb = [];
-        for (x in mlbgameshome) {
-
-
-			Reddit.subreddit("mlbstreams").search(mlbgameshome[x]).limit(30).exec(function(data){
-				// Some super awesome code
-				// We can even search through a subreddit:
-
-				mlb.push(data);
-			});
-
-
-
-			// Reddit.user("nbastreams").exec(function(data){
-			//     // Some super awesome code
-			// 	// Executing requests can be done in two ways:
-			// 	console.log(data);
-			// })
-
-			// Reddit.subreddit("nbastreams").exec(function(data){
-			//      Some super awesome code
-			// 	 Get the 25 latest posts (Links and self-posts) of a given subreddit:
-			// 	res.json(data);
-			// })
-
-			// Reddit.subreddit("nbastreams").comments().top().limit(20).exec(function(data){
-			//     // Some super awesome code
-			// 	// Or how about we make a request, that finds the 42 top comments of a given subreddit, using the filter comments:
-			// 	console.log(data);
-			// })
-			//
-
-		}
-		res.json(mlb);
-
-
 	}
+
+	// redditstuff: function(req, res) {
+	// 	// var x;
+	// 	// var mlb = [];
+    //     // for (x in mlbgameshome) {
+	// 	//
+	// 	//
+	// 	// 	Reddit.subreddit("mlbstreams").search(mlbgameshome[x]).limit(30).exec(function(data){
+	// 	// 		// Some super awesome code
+	// 	// 		// We can even search through a subreddit:
+	// 	//
+	// 	// 		mlb.push(data);
+	// 	// 	});
+	// 	//
+	// 	//
+	// 	//
+	// 	// 	Reddit.user("nbastreams").exec(function(data){
+	// 	// 	    // Some super awesome code
+	// 	// 		// Executing requests can be done in two ways:
+	// 	// 		console.log(data);
+	// 	// 	})
+	// 	//
+	// 	// 	Reddit.subreddit("nbastreams").exec(function(data){
+	// 	// 	     Some super awesome code
+	// 	// 		 Get the 25 latest posts (Links and self-posts) of a given subreddit:
+	// 	// 		res.json(data);
+	// 	// 	})
+	// 	//
+	// 	// 	Reddit.subreddit("nbastreams").comments().top().limit(20).exec(function(data){
+	// 	// 	    // Some super awesome code
+	// 	// 		// Or how about we make a request, that finds the 42 top comments of a given subreddit, using the filter comments:
+	// 	// 		console.log(data);
+	// 	// 	})
+	// 	//
+	// 	//
+	// 	// }
+	// 	// res.json(mlb);
+	//
+	//
+	// }
 
 }
