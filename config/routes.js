@@ -37,16 +37,6 @@ module.exports.routes = {
       action: 'render_login'
     },
 
-    'POST /login': {
-      controller: 'Authentication',
-      action: 'login'
-    },
-
-    'POST /register': {
-      controller: 'Authentication',
-      action: 'register'
-    },
-
     '/register': {
       controller: 'Authentication',
       action: 'render_register'
@@ -67,34 +57,9 @@ module.exports.routes = {
       action: 'render_homepage'
     },
 
-    'POST /handle_email': {
-        controller:'Authentication',
-        action: 'handle_email'
-    },
-
-    'POST /handle_message': {
-        controller:'Authentication',
-        action: 'contactinfo'
-    },
-
     '/contact': {
         controller:'Authentication',
         action: 'render_contact'
-    },
-
-    'GET /games': {
-        controller:'reddit',
-        action: 'allgames'
-    },
-
-    'GET /redditstuff': {
-        controller:'Reddit',
-        action: 'redditstuff'
-    },
-
-    '/heat': {
-        controller:'reddit',
-        action: 'render_heat'
     },
 
     '/baseball': {
@@ -110,7 +75,29 @@ module.exports.routes = {
     '/hockey': {
         controller:'reddit',
         action: 'render_hockey'
-    }
+    },
+
+    'POST /handle_email': {
+        controller:'Authentication',
+        action: 'handle_email'
+    },
+
+    'POST /handle_message': {
+        controller:'Authentication',
+        action: 'contactmail'
+    },
+
+    'POST /login': {
+      controller: 'Authentication',
+      action: 'login'
+    },
+
+    'POST /register': {
+      controller: 'Authentication',
+      action: 'register'
+    },
+
+
 
   /***************************************************************************
   *                                                                          *

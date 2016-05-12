@@ -6,12 +6,9 @@
  */
 var r = require("nraw");
 var Reddit = new r("Testbot v0.0.1 by Mobilpadde");
-
 var request = require("request");
 var cheerio = require("cheerio");
 var URL = require('url-parse');
-
-
 
 var stored_allgames = [];
 
@@ -103,8 +100,8 @@ module.exports = {
 
 				$('.game.pre.link').each(function() {
 					var data = $(this);
-					var away = data.children('.away').text().trim();
-					var home = data.children('.home').text().trim();
+					var away = data.children('.away').text().trim().split(") ")[1];
+					var home = data.children('.home').text().trim().split(") ")[1];
 					var timedata = data.children('.summary').text().trim();
 					var time = timedata.slice(0,12);
 						var game = {
@@ -154,8 +151,8 @@ module.exports = {
 
 				$('.game.pre.link').each(function() {
 					var data = $(this);
-					var away = data.children('.away').text().trim();
-					var home = data.children('.home').text().trim();
+					var away = data.children('.away').text().trim().split(") ")[1];
+					var home = data.children('.home').text().trim().split(") ")[1];
 					var timedata = data.children('.summary').text().trim();
 					var time = timedata.slice(0,12);
 						var game = {
@@ -172,48 +169,115 @@ module.exports = {
 			stored_allgames = allgames;
 			res.json(allgames);
 		});
+	},
+
+	nbagames: function(req, res) {
+		var found_games = {};
 
 
+
+		Reddit.subreddit("nbastreams").limit(10).exec(function(data){
+			var games = [];
+
+			var pretty_data = data.data.children.map(function(child) {
+	            return {
+	                title: child.data.title,
+	                url: child.data.url
+	            };
+	        });
+
+			nbagameshome.forEach(function (team) {
+				found_games[team] = findGames(pretty_data, team);
+			});
+
+
+			res.json(found_games);
+			console.log(found_games);
+
+			// for (game in games) {
+			// 	(function(url) {
+			//         require( url, function() {
+			//             console.log(url);
+			//         });
+			//     })(games[game]);
+			// }
+
+			// request('https://www.reddit.com/r/nbastreams/comments/4f3cbr/new_rnbastreams_css_thanks_to_ujorgegil96/', function (error, response, body) {
+			// 	//Check for error
+			// 	if(error){
+			// 		return console.log('Error:', error);
+			// 	}
+			// 	//Check for right status code
+			// 	if(response.statusCode !== 200){
+			// 		return console.log('Invalid Status Code Returned:', response.statusCode);
+			// 	}
+			// 	//All is good. Print the body
+			// 	console.log('ok'); // Show the HTML for the Modulus homepage.
+			// });
+		})
+	},
+
+	mlbgames: function(req, res) {
+
+		Reddit.subreddit("mlbstreams").limit(10).exec(function(data){
+			var found_games = {};
+
+			var pretty_data = data.data.children.map(function(child) {
+	            return {
+	                title: child.data.title,
+	                url: child.data.url
+	            };
+	        });
+
+			mlbgameshome.forEach(function (team) {
+				found_games[team] = findGames(pretty_data, team);
+			});
+
+			res.json(found_games);
+
+		});
+	},
+
+	nhlgames: function(req, res) {
+
+		Reddit.subreddit("nhlstreams").limit(10).exec(function(data){
+			var found_games = {};
+
+			var pretty_data = data.data.children.map(function(child) {
+	            return {
+	                title: child.data.title,
+	                url: child.data.url
+	            };
+	        });
+
+			nhlgameshome.forEach(function (team) {
+				found_games[team] = findGames(pretty_data, team);
+			});
+
+			res.json(found_games);
+		});
+	},
+
+	nbacomments: function (req, res){
+		Reddit.subreddit("nbastreams").post("4f3cbr").exec(function(data){
+			res.json(data);
+		});
+	},
+
+	hello: function (req, res) {
+		res.send('Hey there buddy');
 	}
+}
 
-	// redditstuff: function(req, res) {
-	// 	// var x;
-	// 	// var mlb = [];
-    //     // for (x in mlbgameshome) {
-	// 	//
-	// 	//
-	// 	// 	Reddit.subreddit("mlbstreams").search(mlbgameshome[x]).limit(30).exec(function(data){
-	// 	// 		// Some super awesome code
-	// 	// 		// We can even search through a subreddit:
-	// 	//
-	// 	// 		mlb.push(data);
-	// 	// 	});
-	// 	//
-	// 	//
-	// 	//
-	// 	// 	Reddit.user("nbastreams").exec(function(data){
-	// 	// 	    // Some super awesome code
-	// 	// 		// Executing requests can be done in two ways:
-	// 	// 		console.log(data);
-	// 	// 	})
-	// 	//
-	// 	// 	Reddit.subreddit("nbastreams").exec(function(data){
-	// 	// 	     Some super awesome code
-	// 	// 		 Get the 25 latest posts (Links and self-posts) of a given subreddit:
-	// 	// 		res.json(data);
-	// 	// 	})
-	// 	//
-	// 	// 	Reddit.subreddit("nbastreams").comments().top().limit(20).exec(function(data){
-	// 	// 	    // Some super awesome code
-	// 	// 		// Or how about we make a request, that finds the 42 top comments of a given subreddit, using the filter comments:
-	// 	// 		console.log(data);
-	// 	// 	})
-	// 	//
-	// 	//
-	// 	// }
-	// 	// res.json(mlb);
-	//
-	//
-	// }
 
+function findGames (pretty_data, team_name) {
+	var results = [];
+
+	pretty_data.forEach(function (child) {
+		if (child.title.toLowerCase().indexOf(team_name) > -1) {
+			results.push(child);
+		}
+	});
+
+	return results;
 }

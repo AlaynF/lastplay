@@ -6,9 +6,7 @@
  */
 
 
-var all_users = [
-	{username: 'Alayn', password: 'Alayn'}
-];
+var all_users = [{username: 'Alayn', password: 'Alayn'}];
 var contact_info = {};
 var request = require("request");
 var cheerio = require("cheerio");
@@ -118,8 +116,6 @@ module.exports = {
 		all_users.push(user);
 	},
 
-
-
 	handle_email: function (req, res) {
 		var data = req.body;
 		if (data.email) {
@@ -133,7 +129,7 @@ module.exports = {
 		}
 	},
 
-	contactinfo: function (req, res) {
+	contactmail: function (req, res) {
 		var data = req.body;
 		var nodemailer = require("nodemailer");
 		var smtpTransport = nodemailer.createTransport('smtps://Alaynfernandez%40gmail.com:Alaynalayn78	@smtp.gmail.com');
