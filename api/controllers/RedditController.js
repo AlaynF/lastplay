@@ -173,8 +173,7 @@ module.exports = {
 
 	nbagames: function(req, res) {
 		var found_games = {};
-
-
+		var found_body = {};
 
 		Reddit.subreddit("nbastreams").limit(10).exec(function(data){
 			var games = [];
@@ -184,36 +183,34 @@ module.exports = {
 	                title: child.data.title,
 	                url: child.data.url
 	            };
+
+				var pretty_data_link = child.data.url
+
+				// pretty_data.data.url.forEach(function(url){
+				// 	request(url, function (error, response, body) {
+				// 		//Check for error
+				// 		if(error){
+				// 			return console.log('Error:', error);
+				// 		}
+				// 		//Check for right status code
+				// 		if(response.statusCode !== 200){
+				// 			return console.log('Invalid Status Code Returned:', response.statusCode);
+				// 		}
+				// 		//All is good. Print the body
+				// 		found_body.push(body);
+				// 		console.log(body);
+				// 		 // Show the HTML for the Modulus homepage.
+				// 	});
+				// });
+				console.log(pretty_data_link);
 	        });
 
 			nbagameshome.forEach(function (team) {
 				found_games[team] = findGames(pretty_data, team);
 			});
 
+			res.json(found_body);
 
-			res.json(found_games);
-			console.log(found_games);
-
-			// for (game in games) {
-			// 	(function(url) {
-			//         require( url, function() {
-			//             console.log(url);
-			//         });
-			//     })(games[game]);
-			// }
-
-			// request('https://www.reddit.com/r/nbastreams/comments/4f3cbr/new_rnbastreams_css_thanks_to_ujorgegil96/', function (error, response, body) {
-			// 	//Check for error
-			// 	if(error){
-			// 		return console.log('Error:', error);
-			// 	}
-			// 	//Check for right status code
-			// 	if(response.statusCode !== 200){
-			// 		return console.log('Invalid Status Code Returned:', response.statusCode);
-			// 	}
-			// 	//All is good. Print the body
-			// 	console.log('ok'); // Show the HTML for the Modulus homepage.
-			// });
 		})
 	},
 
