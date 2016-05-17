@@ -1,27 +1,25 @@
 <div ng-controller='contact' style="margin-top:100px" class="container">
+    <div style="width:500px" class="container">
+    <section style="width:500px" class="hero is-success">
+      <div class="hero-body">
+        <div class="container">
+          <h1 style="text-align:center" class="title">
+            Invite a friend to watch the game live!
+          </h1>
+        </div>
+      </div>
+    </section>
+    </div>
+    <div style="width:400px;margin-top:50px" class="container">
+        <p class="control has-icon">
+            <input style="width:400px" ng-model="email" class="input" type="text" placeholder="Email" name="email">
+            <i class="fa fa-envelope"></i>
+        </p>
 
-        <section class="hero is-success">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title ">
-                Invite a friend to watch the game live!
-              </h1>
-            </div>
-          </div>
-        </section>
-    <label class="label">E-mail</label>
-    <p class="control has-icon">
-        <input ng-model="email" class="input" type="text" placeholder="Email" name="email">
-        <i class="fa fa-envelope"></i>
-    </p>
 
-    <label class="label">Message</label>
-    <p class="control">
-        <textarea ng-model="contact" class="textarea" name="contact" placeholder="Send a message!" value="Come watch the game live at Lastplay.us"></textarea>
-    </p>
-
-    <p class="control">
-        <button ng-click="invite()" class="button is-primary">Submit</button>
-        <button ng-click="clear()" class="button is-outlined">Cancel</button>
-    </p>
+        <p class="control">
+            <button ng-click="invite()" class="button is-primary">Submit</button>
+            <button ng-click="clear()" class="button is-outlined">Cancel</button>
+        </p>
+    </div>
 </div>
