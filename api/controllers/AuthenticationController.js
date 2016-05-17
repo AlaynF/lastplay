@@ -54,6 +54,13 @@ module.exports = {
 		});
 	},
 
+	render_invite: function (req, res) {
+		res.view('invite', {
+			error_message: '',
+			layout: 'layout_contact'
+		});
+	},
+
 	login: function (req, res) {
 		var found_user, user_exists = false;
 		var error_message = '';
@@ -118,6 +125,7 @@ module.exports = {
 
 	handle_email: function (req, res) {
 		var data = req.body;
+
 		if (data.email) {
 			Users.create({
 				email: data.email
@@ -132,7 +140,7 @@ module.exports = {
 	contactmail: function (req, res) {
 		var data = req.body;
 		var nodemailer = require("nodemailer");
-		var smtpTransport = nodemailer.createTransport('smtps://Alaynfernandez%40gmail.com:Alaynalayn78	@smtp.gmail.com');
+		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
 
 		// nodemailer.createTransport("SMTP",{
 		// 	service: "Gmail",  // sets automatically host, port and connection security settings
@@ -151,10 +159,51 @@ module.exports = {
 		}
 
 		smtpTransport.sendMail({  //email options
-			from: "Alayn Fernandez <Alaynfernandez@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-			to: 'Alaynfernandez@gmail.com', // receiver
+			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+			to: 'Lastplayus@gmail.com', // receiver
 			subject: "Last Play Feedback", // subject
 			html: "From: " + data.email + " // " + data.message  // body
+		}, function(error, response){  //callback
+			if(error) {
+				console.log('error');
+			} else {
+				console.log("Message sent.");
+			}
+
+			res.json({
+				success: true
+			});
+
+			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+		});
+	},
+
+	invite: function (req, res) {
+		var data = req.body;
+		var nodemailer = require("nodemailer");
+		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
+
+		// nodemailer.createTransport("SMTP",{
+		// 	service: "Gmail",  // sets automatically host, port and connection security settings
+		// 	auth: {
+		// 		user: "Alaynfernandez@gmail.com",
+		// 		pass: "Supermario78"
+		// 	}
+		// });
+
+		if (!data.email || !data.message) {
+			res.json({
+				success: false
+			});
+			return;
+
+		}
+
+		smtpTransport.sendMail({//email options
+			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+			to: data.email , // receiver
+			subject: "Live stream invitation", // subject
+			html: "Stream is live on www.Lastplay.us !" + "  / " + data.message  // body
 		}, function(error, response){  //callback
 			if(error) {
 				console.log('error');

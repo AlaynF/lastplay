@@ -41,25 +41,25 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
     });
 
     $http.get('/api/reddit/nbagames').success(function(data) {
-        console.log(data);
+
     });
 
     $http.get('/api/reddit/mlbgames').success(function(data) {
-        console.log(data);
+
     });
 
     $http.get('/api/reddit/nhlgames').success(function(data) {
-        console.log(data);
+
     });
 
     $http.get('/api/reddit/nbacomments').success(function(data) {
-        console.log(data);
+        
     });
 
     window.onload = function(){
         var player = new Clappr.Player({
             source: "http://localhost:8000/wow.m3u8",
-            poster: 'http://cors.io/?u=http://wallpaperhd.press/wp-content/uploads/2016/02/Sports-Wallpapers-L3O.jpg',
+            poster: 'http://athlonsports.com/sites/athlonsports.com/files/EasternConfFinals_0.jpg',
             width: "960px",
             parentId: "#player",
             height: "400px"

@@ -10,17 +10,13 @@ window.app.controller('login', function($scope, $http, $window) {
             sweetAlert("Oops...", "Please enter E-mail", "error");
             return;
         }
-          else
+            else
 
-            if (!email_reg.test($scope.info.email)) {
-                sweetAlert("Oops...", "E-mail not valid", "error");
-                return;
-            }
+        if (!email_reg.test($scope.info.email)) {
+            sweetAlert("Oops...", "E-mail not valid", "error");
+            return;
+        }
 
-        $http.post('/handle_email', {
-        email: $scope.info.email
-        });
-        console.log($scope.info.email)
         swal({
             title: "Thanks!",
             text: "You're all signed up!",
@@ -29,7 +25,11 @@ window.app.controller('login', function($scope, $http, $window) {
             confirmButtonColor: "#A5DC86",
             confirmButtonText: "Awesome!",
             closeOnConfirm: true
-        }, function(){
+        },
+            function(){
+            $http.post('/handle_email', {
+            email: $scope.info.email
+            });
             $window.location.href="/home";
         });
     }

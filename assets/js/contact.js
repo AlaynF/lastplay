@@ -24,7 +24,7 @@ window.app.controller('contact', function($scope, $http, $window) {
             message: $scope.contact
         };
 
-        $http.post('/handle_message', data);
+        $http.post('/api/Authentication/handle_message', data);
 
         $scope.clear()
 
@@ -45,4 +45,42 @@ window.app.controller('contact', function($scope, $http, $window) {
         $scope.email = "";
         $scope.contact = ""
     }
+
+    $scope.invite = function() {
+        if (!$scope.email || !$scope.contact) {
+            sweetAlert("Oops...", "Please enter information", "error");
+            console.log($scope.email)
+            return;
+        } else {
+            if (!email_reg.test($scope.email)) {
+                sweetAlert("Oops...", "E-mail not valid", "error");
+                return;
+            }
+        }
+
+
+        var data = {
+            email: $scope.email,
+            message: $scope.contact
+        };
+
+        $http.post('/api/Authentication/invite', data);
+        console.log(data);
+
+        $scope.clear()
+
+        swal({
+            title: "Thanks!",
+            text: "Your message was sent!",
+            type: "success",
+            showCancelButton: false,
+            confirmButtonColor: "#A5DC86",
+            confirmButtonText: "Awesome!",
+            closeOnConfirm: true
+        }, function(){
+            $window.location.href="/home";
+        });
+    }
+
+
 });

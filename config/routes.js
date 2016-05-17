@@ -77,6 +77,11 @@ module.exports.routes = {
         action: 'render_hockey'
     },
 
+    '/invite': {
+        controller:'Authentication',
+        action: 'render_invite'
+    },
+
     'POST /handle_email': {
         controller:'Authentication',
         action: 'handle_email'
