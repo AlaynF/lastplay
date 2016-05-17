@@ -34,7 +34,7 @@ module.exports.routes = {
 
     '/': {
       controller: 'Authentication',
-      action: 'render_login'
+      action: 'render_homepage'
     },
 
     '/register': {

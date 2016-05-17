@@ -178,13 +178,18 @@ module.exports = {
 		Reddit.subreddit("nbastreams").limit(10).exec(function(data){
 			var games = [];
 
+			if (!data.data) {
+				res.json([]);
+				return;
+			}
+
 			var pretty_data = data.data.children.map(function(child) {
 	            return {
 	                title: child.data.title,
 	                url: child.data.url
 	            };
 
-				var pretty_data_link = child.data.url
+				//var pretty_data_link = child.data.url
 
 				// pretty_data.data.url.forEach(function(url){
 				// 	request(url, function (error, response, body) {
@@ -209,9 +214,9 @@ module.exports = {
 				found_games[team] = findGames(pretty_data, team);
 			});
 
-			res.json(found_body);
+			res.json(found_games);
 
-		})
+		});
 	},
 
 	mlbgames: function(req, res) {
@@ -219,11 +224,15 @@ module.exports = {
 		Reddit.subreddit("mlbstreams").limit(10).exec(function(data){
 			var found_games = {};
 
+			if (!data.data) {
+				res.json([]);
+				return;
+			}
 			var pretty_data = data.data.children.map(function(child) {
-	            return {
-	                title: child.data.title,
-	                url: child.data.url
-	            };
+				return {
+					title: child.data.title,
+					url: child.data.url
+				};
 	        });
 
 			mlbgameshome.forEach(function (team) {
@@ -239,6 +248,11 @@ module.exports = {
 
 		Reddit.subreddit("nhlstreams").limit(10).exec(function(data){
 			var found_games = {};
+
+			if (!data.data) {
+				res.json([]);
+				return;
+			}
 
 			var pretty_data = data.data.children.map(function(child) {
 	            return {
@@ -263,6 +277,10 @@ module.exports = {
 
 	hello: function (req, res) {
 		res.send('Hey there buddy');
+	},
+
+	proxy: function (req, res) {
+
 	}
 }
 

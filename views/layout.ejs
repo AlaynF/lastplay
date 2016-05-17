@@ -62,7 +62,7 @@
                         <i><img src="images/Hockey.png"/></i>
                     </span>
                 </a>
-                <a ng-model="sport" class="nav-item" href="/football">
+                <!-- <a ng-model="sport" class="nav-item" href="/football">
                     <span ng-model="sport" name="football" value="football" class="icon">
                         <i><img src="images/Football.png"/></i>
                     </span>
@@ -76,7 +76,7 @@
                     <span ng-model="sport" name="boxing" value="boxing" class="icon">
                         <i><img src="images/Boxing.png"/></i>
                     </span>
-                </a>
+                </a> -->
             </div>
 
             <span class="nav-toggle">
@@ -167,8 +167,10 @@
 
       -->
 
+
       <!--SCRIPTS-->
       <script src="/js/dependencies/sails.io.js"></script>
+      <script src="/js/dependencies/hls.js"></script>
       <script src="/js/dependencies/sweetalert.min.js"></script>
       <script src="/js/ang.js"></script>
       <script src="/js/contact.js"></script>
@@ -188,8 +190,8 @@
                         <th style="width:150px;text-align: center">Sport</th>
                         <th style="text-align: center" style="width:600px">Live Event</th>
                         <th style="width:150px;text-align: center">Time</th>
-                        <th style="text-align: center" >Score</th>
-                        <th>Link</th>
+                        <!-- <th style="text-align: center" >Score</th> -->
+                        <!-- <th>Link</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -197,12 +199,12 @@
                         <td style="text-align: center" ><i style="width:20px"><img ng-src='{{game.pic}}'/></i>  {{game.sport}}</td>
                         <td style="text-align: center"> {{game.away}} @ {{game.home}}</td>
                         <td style="text-align: center">{{game.time}}</td>
-                        <td style="text-align: center">0-0</td>
-                        <td class="is-link is-icon">
+                        <!-- <td style="text-align: center">0-0</td> -->
+                        <!-- <td class="is-link is-icon">
                             <a href="/heat">
                                <i class="fa fa-link"></i>
                             </a>
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
             </table>
