@@ -24,7 +24,7 @@ window.app.controller('contact', function($scope, $http, $window) {
             message: $scope.contact
         };
 
-        $http.post('/api/Authentication/handle_message', data);
+        $http.post('/api/Authentication/contactmail', data);
 
         $scope.clear()
 

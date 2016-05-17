@@ -82,25 +82,6 @@ module.exports.routes = {
         action: 'render_invite'
     },
 
-    'POST /handle_email': {
-        controller:'Authentication',
-        action: 'handle_email'
-    },
-
-    'POST /handle_message': {
-        controller:'Authentication',
-        action: 'contactmail'
-    },
-
-    'POST /login': {
-      controller: 'Authentication',
-      action: 'login'
-    },
-
-    'POST /register': {
-      controller: 'Authentication',
-      action: 'register'
-    },
 
 
 

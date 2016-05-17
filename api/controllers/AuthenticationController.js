@@ -123,7 +123,7 @@ module.exports = {
 		all_users.push(user);
 	},
 
-	handle_email: function (req, res) {
+	email: function (req, res) {
 		var data = req.body;
 
 		if (data.email) {

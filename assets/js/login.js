@@ -27,7 +27,7 @@ window.app.controller('login', function($scope, $http, $window) {
             closeOnConfirm: true
         },
             function(){
-            $http.post('/handle_email', {
+            $http.post('/api/authentication/email', {
             email: $scope.info.email
             });
             $window.location.href="/home";
