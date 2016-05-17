@@ -42,7 +42,7 @@ module.exports.routes = {
       action: 'render_register'
     },
 
-    '/login': {
+    '/news': {
       controller: 'Authentication',
       action: 'render_login'
     },
