@@ -21,6 +21,16 @@ window.app.controller('login', function($scope, $http, $window) {
         email: $scope.info.email
         });
         console.log($scope.info.email)
-        $window.location.href="/home";
+        swal({
+            title: "Thanks!",
+            text: "You're all signed up!",
+            type: "success",
+            showCancelButton: false,
+            confirmButtonColor: "#A5DC86",
+            confirmButtonText: "Awesome!",
+            closeOnConfirm: true
+        }, function(){
+            $window.location.href="/home";
+        });
     }
 });
