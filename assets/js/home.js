@@ -58,7 +58,7 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
 
     window.onload = function(){
         var player = new Clappr.Player({
-            source: "http://localhost:8000/wow.m3u8",
+            source: "http://localhost:1337/api/reddit/proxy?url=http://video-edge-836134.sfo01.hls.ttvnw.net/hls30/trescojones_21388201920_455075759/chunked/index-live.m3u8?token=id=614553183915019484,bid=21388201920,exp=1463687406,node=video-edge-836134-1.sfo01.hls.justin.tv,nname=video-edge-836134.sfo01,fmt=chunked&sig=e12fb9eb063be42fb49f2dfbd100420fee68d8b2&wow=.m3u8",
             poster: 'http://athlonsports.com/sites/athlonsports.com/files/EasternConfFinals_0.jpg',
             width: "960px",
             parentId: "#player",
@@ -82,7 +82,7 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         //     }
         // }
         //
-        // playM3u8("http://localhost:8000/wow.m3u8");
+        // playM3u8("http://localhost:1337/api/reddit/proxy?url=http://video-edge-836134.sfo01.hls.ttvnw.net/hls30/trescojones_21388201920_455075759/chunked/index-live.m3u8?token=id=614553183915019484,bid=21388201920,exp=1463687406,node=video-edge-836134-1.sfo01.hls.justin.tv,nname=video-edge-836134.sfo01,fmt=chunked&sig=e12fb9eb063be42fb49f2dfbd100420fee68d8b2");
     }
 
 });

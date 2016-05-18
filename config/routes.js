@@ -80,9 +80,7 @@ module.exports.routes = {
     '/invite': {
         controller:'Authentication',
         action: 'render_invite'
-    },
-
-
+    }
 
 
   /***************************************************************************

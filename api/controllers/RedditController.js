@@ -281,6 +281,17 @@ module.exports = {
 
 	proxy: function (req, res) {
 
+		req.query.url = req.query.url + '&sig=' + req.query.sig;
+		console.log(req.query.url);
+		res.set('Access-Control-Allow-Origin', '*');
+
+		request.get(req.query.url)
+		.on('error', function(err) {
+			console.log(err);
+		})
+		.on('response', function (response) {
+			response.pipe(res);
+		});
 	}
 }
 
