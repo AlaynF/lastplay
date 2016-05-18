@@ -53,7 +53,7 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
     });
 
     $http.get('/api/reddit/nbacomments').success(function(data) {
-        
+
     });
 
     window.onload = function(){
