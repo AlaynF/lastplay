@@ -203,7 +203,7 @@ module.exports = {
 			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
 			to: data.email , // receiver
 			subject: "Live stream invitation", // subject
-			html: "Stream is live on www.Lastplay.us !" // body
+			html: "Stream is live on www.Lastplay.live !" // body
 		}, function(error, response){  //callback
 			if(error) {
 				console.log('error');
