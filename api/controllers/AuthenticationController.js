@@ -48,15 +48,15 @@ module.exports = {
 
 	render_contact: function (req, res) {
 		res.view('contact', {
-			error_message: '',
-			layout: 'layout_contact'
+			error_message: ''
+
 		});
 	},
 
 	render_invite: function (req, res) {
 		res.view('invite', {
-			error_message: '',
-			layout: 'layout_contact'
+			error_message: ''
+
 		});
 	},
 
