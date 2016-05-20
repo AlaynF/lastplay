@@ -64,7 +64,15 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         rtmpConfig: {},
         });
 
+        var player2 = new Clappr.Player({
+        source: "rtmp://localonly.chickenkiller.com:1935/live/test1",
+        parentId: "#player-wrapper2",
+        plugins: {'playback': [RTMP]},
+        rtmpConfig: {},
+        });
+
     }
+
 
     $scope.logout = function () {
         console.log('her');
