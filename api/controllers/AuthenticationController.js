@@ -54,7 +54,7 @@ module.exports = {
 	},
 
 	render_invite: function (req, res) {
-		res.view('invite', {
+		res.view('invitefriend', {
 			error_message: ''
 
 		});
