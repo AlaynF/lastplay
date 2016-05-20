@@ -32,13 +32,6 @@ module.exports = {
 		});
 	},
 
-	render_login: function (req, res) {
-		res.view('login', {
-			error_message: '',
-			layout: 'login_layout'
-		});
-	},
-
 	render_profile: function (req, res) {
 		var user = all_users[0];
 		res.view('profile', {

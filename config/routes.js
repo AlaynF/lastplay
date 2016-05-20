@@ -33,18 +33,28 @@ module.exports.routes = {
   ***************************************************************************/
 
     '/': {
-      controller: 'Authentication',
-      action: 'render_homepage'
+      controller: 'Login',
+      action: 'render_login'
     },
 
     '/register': {
-      controller: 'Authentication',
+      controller: 'Login',
       action: 'render_register'
+    },
+
+    '/logout': {
+      controller: 'Login',
+      action: 'logout'
+    },
+
+    '/login': {
+      controller: 'Login',
+      action: 'render_login'
     },
 
     '/news': {
       controller: 'Authentication',
-      action: 'render_login'
+      action: 'render_news'
     },
 
     '/profile': {
@@ -80,7 +90,8 @@ module.exports.routes = {
     '/invite': {
         controller:'Authentication',
         action: 'render_invite'
-    }
+    },
+
 
 
   /***************************************************************************

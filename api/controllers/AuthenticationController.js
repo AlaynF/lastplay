@@ -27,10 +27,9 @@ module.exports = {
 		});
 	},
 
-	render_login: function (req, res) {
-		res.view('login', {
-			error_message: '',
-			layout: 'login_layout'
+	render_news: function (req, res) {
+		res.view('news', {
+			error_message: ''
 		});
 	},
 
@@ -61,66 +60,22 @@ module.exports = {
 		});
 	},
 
-	login: function (req, res) {
-		var found_user, user_exists = false;
-		var error_message = '';
-		var data = req.body;
-		console.log(all_users);
-
-		all_users.forEach(function (user) {
-			if (user['username'] != data.username) {
-				error_message = 'NO USER FOUND';
-				return;
-			}
-			if (user['password'] != data.password) {
-				error_message = 'PASSWORD WRONG';
-				return;
-			}
-
-			user_exists = true;
-			found_user = user;
-		});
-
-		if (user_exists == true) {
-				res.json({
-				success: true
-						});
-		}
-
-		else {
-			res.json({
-			success: false,
-			error_message: error_message
-					});
-		}
-	},
-
 	register: function (req, res) {
-		var user = false;
-		var data = req.body;
-
-		user = {
-			username: data.username,
-			password: data.password,
-			email: data.email,
-			name: data.name
+		console.log('hey');
+		if (req.body.password !== req.body.confirmPassword) {
+			return res.json(401, {err: 'Password doesn\'t match, What a shame!'});
 		}
 
-
-		if (!data.username || !data.password || !data.email || !data.name) {
-			res.json({
-			success: false
-			});
-
-		}
-
-		else {
-			res.json({
-				success: true
-			});
-		}
-
-		all_users.push(user);
+		Users.create(req.body).exec(function (err, user) {
+			if (err) {
+				return res.json(err.status, {err: err});
+			}
+	 // If user created successfuly we return user and token as response
+			if (user) {
+	 // NOTE: payload is { id: user.id}
+				res.json(200, {user: user,});
+			}
+		});
 	},
 
 	email: function (req, res) {

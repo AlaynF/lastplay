@@ -28,6 +28,7 @@ module.exports.policies = {
 
   // '*': true,
 
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
@@ -48,4 +49,15 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+    '*': ['isAuthorized'], // Everything resctricted here
+
+    'UsersController': {
+        'create': true // We dont need authorization here, allowing public access
+    },
+
+    'LoginController': {
+        'logout': true,
+        '*': 'hassession' // We dont need authorization here, allowing public access
+    }
 };

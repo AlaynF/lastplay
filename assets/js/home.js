@@ -65,6 +65,12 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
             height: "400px"
         });
 
+        $scope.logout = function () {
+            console.log('her');
+            session.userId = null;
+            res.redirect('/login')
+        };
+
         // function playM3u8(url){
         //     console.log(Hls.isSupported());
         //   if(Hls.isSupported()) {
