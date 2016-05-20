@@ -54,21 +54,21 @@ module.exports = {
     	var password = req.param('password');
 
     	if (!username || !password) {
-    		return res.json(401, {err: 'username and password required'});
+    		return res.json({success: false});
     	}
 
     	Users.findOne({username: username.toLowerCase()}, function (err, user) {
 			if (!user) {
-				return res.json(401, {err: 'invalid username or password'});
+				return res.json({success: false});
 			}
 
 	    	Users.comparePassword(password, user, function (err, valid) {
 	        	if (err) {
-	        		return res.json(403, {err: 'forbidden'});
+	        		return res.json({success: false});
 	        	}
 
 	        	if (!valid) {
-	        		return res.json(401, {err: 'invalid username or password'});
+	        		return res.json({success: false});
 	        	} else {
 					req.session.userId = user.id;
 					res.json({success: true});
