@@ -47,7 +47,7 @@ window.app.controller('contact', function($scope, $http, $window) {
     }
 
     $scope.invite = function() {
-        if (!$scope.email || !$scope.contact) {
+        if (!$scope.email) {
             sweetAlert("Oops...", "Please enter information", "error");
             console.log($scope.email)
             return;
@@ -61,7 +61,6 @@ window.app.controller('contact', function($scope, $http, $window) {
 
         var data = {
             email: $scope.email,
-            message: $scope.contact
         };
 
         $http.post('/api/Authentication/invite', data);
