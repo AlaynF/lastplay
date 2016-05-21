@@ -40,33 +40,10 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         //Fix Caps for game.sport
     });
 
-    $http.get('/api/reddit/nbagames').success(function(data) {
-
-    });
-
-    $http.get('/api/reddit/mlbgames').success(function(data) {
-
-    });
-
-    $http.get('/api/reddit/nhlgames').success(function(data) {
-
-    });
-
-    $http.get('/api/reddit/nbacomments').success(function(data) {
-
-    });
-
     window.onload = function(){
         var player = new Clappr.Player({
-        source: "rtmp://localonly.chickenkiller.com:1935/live/test",
+        source: "rtmp://server1.lastplay.live/live/test",
         parentId: "#player-wrapper",
-        plugins: {'playback': [RTMP]},
-        rtmpConfig: {},
-        });
-
-        var player2 = new Clappr.Player({
-        source: "rtmp://localonly.chickenkiller.com:1935/live/test1",
-        parentId: "#player-wrapper2",
         plugins: {'playback': [RTMP]},
         rtmpConfig: {},
         });
@@ -80,10 +57,5 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         res.redirect('/login')
     };
 
-    // $scope.empty = function () {
-    //     if(){
-    //         No games today
-    //     }
-    // }
 
 });

@@ -2,7 +2,5 @@ module.exports = {
 
   attributes: {
       
-
-
-  }
+    }
 };

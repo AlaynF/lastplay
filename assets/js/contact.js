@@ -5,7 +5,12 @@ window.app.controller('contact', function($scope, $http, $window) {
 
 
 
+    $scope.clear = function() {
+        $scope.email = "";
+        $scope.contact = ""
+    }
 
+    
     $scope.message = function() {
         if (!$scope.email || !$scope.contact) {
             sweetAlert("Oops...", "Please enter information", "error");
@@ -39,11 +44,6 @@ window.app.controller('contact', function($scope, $http, $window) {
         }, function(){
             $window.location.href="/home";
         });
-    }
-
-    $scope.clear = function() {
-        $scope.email = "";
-        $scope.contact = ""
     }
 
     $scope.invite = function() {

@@ -1,16 +1,7 @@
-/**
- * AuthenticationController
- *
- * @description :: Server-side logic for managing Authentications
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
- */
 
-
-var all_users = [{username: 'Alayn', password: 'Alayn'}];
 var contact_info = {};
 var request = require("request");
 var cheerio = require("cheerio");
-
 
 module.exports = {
 
@@ -57,24 +48,6 @@ module.exports = {
 		res.view('invitefriend', {
 			error_message: ''
 
-		});
-	},
-
-	register: function (req, res) {
-		console.log('hey');
-		if (req.body.password !== req.body.confirmPassword) {
-			return res.json(401, {err: 'Password doesn\'t match, What a shame!'});
-		}
-
-		Users.create(req.body).exec(function (err, user) {
-			if (err) {
-				return res.json(err.status, {err: err});
-			}
-	 // If user created successfuly we return user and token as response
-			if (user) {
-	 // NOTE: payload is { id: user.id}
-				res.json(200, {user: user,});
-			}
 		});
 	},
 
