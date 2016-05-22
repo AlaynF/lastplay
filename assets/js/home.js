@@ -50,7 +50,6 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
 
     }
 
-
     $scope.logout = function () {
         console.log('her');
         session.userId = null;
