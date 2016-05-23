@@ -49,14 +49,14 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         });
 
         var player = new Clappr.Player({
-        source: "rtmp://server1.lastplay.live/live/test",
+        source: "rtmp://server1.lastplay.live/live/espn",
         parentId: "#player-wrapper1",
         plugins: {'playback': [RTMP]},
         rtmpConfig: {},
         });
 
         var player = new Clappr.Player({
-        source: "rtmp://server1.lastplay.live/live/test",
+        source: "rtmp://server1.lastplay.live/live/mlb",
         parentId: "#player-wrapper2",
         plugins: {'playback': [RTMP]},
         rtmpConfig: {},
