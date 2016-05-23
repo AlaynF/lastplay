@@ -18,6 +18,18 @@ module.exports = {
 		});
 	},
 
+	render_channel1: function (req, res) {
+		res.view('channel1', {
+			error_message: ''
+		});
+	},
+
+	render_channel2: function (req, res) {
+		res.view('channel2', {
+			error_message: ''
+		});
+	},
+
 	render_news: function (req, res) {
 		res.view('news', {
 			error_message: ''
@@ -40,14 +52,12 @@ module.exports = {
 	render_contact: function (req, res) {
 		res.view('contact', {
 			error_message: ''
-
 		});
 	},
 
 	render_invite: function (req, res) {
 		res.view('invitefriend', {
 			error_message: ''
-
 		});
 	},
 
@@ -69,14 +79,6 @@ module.exports = {
 		var data = req.body;
 		var nodemailer = require("nodemailer");
 		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
-
-		// nodemailer.createTransport("SMTP",{
-		// 	service: "Gmail",  // sets automatically host, port and connection security settings
-		// 	auth: {
-		// 		user: "Alaynfernandez@gmail.com",
-		// 		pass: "Supermario78"
-		// 	}
-		// });
 
 		if (!data.email || !data.message) {
 			res.json({
@@ -111,13 +113,6 @@ module.exports = {
 		var nodemailer = require("nodemailer");
 		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
 
-		// nodemailer.createTransport("SMTP",{
-		// 	service: "Gmail",  // sets automatically host, port and connection security settings
-		// 	auth: {
-		// 		user: "Alaynfernandez@gmail.com",
-		// 		pass: "Supermario78"
-		// 	}
-		// });
 
 		if (!data.email) {
 			res.json({
@@ -131,17 +126,15 @@ module.exports = {
 			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
 			to: data.email , // receiver
 			subject: "Live stream invitation", // subject
-			html: "Stream is live on www.Lastplay.live !" // body
-		}, function(error, response){  //callback
+			html: res.render('email')
+
+		},
+		function(error, response){  //callback
 			if(error) {
 				console.log('error');
 			} else {
 				console.log("Message sent.");
 			}
-
-			res.json({
-				success: true
-			});
 
 			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
 		});

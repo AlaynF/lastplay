@@ -42,6 +42,16 @@ module.exports.routes = {
       action: 'render_register'
     },
 
+    '/channel1': {
+      controller: 'Authentication',
+      action: 'render_channel1'
+    },
+
+    '/channel2': {
+      controller: 'Authentication',
+      action: 'render_channel2'
+    },
+
     '/logout': {
       controller: 'Login',
       action: 'logout'
@@ -65,6 +75,11 @@ module.exports.routes = {
     '/home': {
       controller:'Authentication',
       action: 'render_homepage'
+    },
+
+    '/recover': {
+      controller:'Login',
+      action: 'render_recover'
     },
 
     '/contact': {

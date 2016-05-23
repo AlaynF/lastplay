@@ -1,0 +1,30 @@
+<div  ng-controller="login">
+
+
+<% if (error_message) { %>
+<%= error_message %>
+              <br>
+              <br>
+<% } %>
+
+<div style="margin-top:200px" >
+    <div style="width:300px;margin-top:7px" class="container">
+        <p class="control has-icon">
+        <input ng-model="password" type="password" class="input" placeholder="Password">
+        <i class="fa fa-lock"></i>
+        </p>
+    </div>
+
+    <div style="width:300px;margin-top:7px" class="container">
+        <p class="control has-icon">
+        <input ng-model="confirmPassword" type="password" class="input" placeholder="Confirm Password">
+        <i class="fa fa-lock"></i>
+        </p>
+    </div>
+
+    <div style="width:150px;margin-top:7px" class="container">
+        <button ng-click="submitInfo()" style="width:150px" class="button is-success" type="submit" value="Submit">Submit</button>
+    </div>
+
+
+</div>

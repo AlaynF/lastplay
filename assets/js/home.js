@@ -48,6 +48,21 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
         rtmpConfig: {},
         });
 
+        var player = new Clappr.Player({
+        source: "rtmp://server1.lastplay.live/live/test",
+        parentId: "#player-wrapper1",
+        plugins: {'playback': [RTMP]},
+        rtmpConfig: {},
+        });
+
+        var player = new Clappr.Player({
+        source: "rtmp://server1.lastplay.live/live/test",
+        parentId: "#player-wrapper2",
+        plugins: {'playback': [RTMP]},
+        rtmpConfig: {},
+        });
+
+
     }
 
     $scope.logout = function () {

@@ -3,7 +3,7 @@
 <% } %>
 
 <div style="margin-top: 100px;width:250" ng-controller='login'>
-	
+
 
 	<div style="width:230px" class="container">
 		<img class="logopic" width="230px" src="/images/logo.png"/>
@@ -21,6 +21,9 @@
 			<input style="width: 200px" class="input" ng-model="password" type="password" placeholder="Password">
 			<i class="fa fa-lock"></i>
 		</p>
+		<!-- <div style="text-align:center;width:200px;margin-left:0px" class="container">
+		<a style="color:black" ng-click="open()">Forgot Password?</a>
+		</div> -->
 	</div>
 
 	<div style="padding-top: 8px; width: 165px" class="container" >
@@ -31,5 +34,30 @@
 			</div>
 		</p>
 	</div>
+
+
+	<!-- <div ng-class="modal">
+	  <div ng-click="open()" class="modal-background"></div>
+	  <div style="width:400px"  class="modal-card">
+	    <header style="text-align:center" class="modal-card-head">
+	      <p class="modal-card-title">Forgot Password?</p>
+	      <button ng-click="open()" class="delete"></button>
+	    </header>
+		<span style="text-aligned:center;margin-left:10px;margin-top:10px;margin-right:10px">
+		To reset your password, enter the email address you used to register on Lastplay!
+		<span>
+	    <section class="modal-card-body">
+				<p class="control has-icon">
+    				<input ng-model="emailpassword" class="input" type="email" placeholder="Email">
+					<i class="fa fa-envelope"></i>
+				</p>
+	    </section>
+	    <footer class="modal-card-foot container">
+			<div style="width:310" class="container">
+	    		<a ng-click="recover()" style="width:300" class="button is-success">Send my Password</a>
+			</div>
+	    </footer>
+	  </div>
+	</div> -->
 
 </div>

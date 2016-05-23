@@ -1,8 +1,33 @@
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'd6F3Efeq';
+
+	function encrypt(text){
+	var cipher = crypto.createCipher(algorithm,password)
+	var crypted = cipher.update(text,'utf8','hex')
+	crypted += cipher.final('hex');
+	return crypted;
+    }
+
+	function decrypt(text){
+	  var decipher = crypto.createDecipher(algorithm,password)
+	  var dec = decipher.update(text,'hex','utf8')
+	  dec += decipher.final('utf8');
+	  return dec;
+    }
+
 
 module.exports = {
 
 	render_login: function (req, res) {
 		res.view('login', {
+			error_message: '',
+			layout: 'login_layout'
+		});
+	},
+
+	render_recover: function (req, res) {
+		res.view('recover', {
 			error_message: '',
 			layout: 'login_layout'
 		});
@@ -75,5 +100,62 @@ module.exports = {
       req.session.destroy(function() {
            return res.redirect('/login');
     	});
+	},
+
+	passwordrecovery: function (req, res) {
+		var data = req.body;
+
+        if (!data.email) {
+    		return res.json({success: false});
+    	}
+
+		Users.findOne({email: data.email.toLowerCase()}, function (err, user) {
+			if (!user) {
+				return res.json({success: false});
+                //Add User ID
+			} else {
+                var user = {
+                    email:data.email,
+                    id:user.id
+                };
+                console.log(user);
+				var token = encrypt(JSON.stringify(data.email));
+                var nodemailer = require("nodemailer");
+        		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
+
+
+        		if (!info) {
+        			res.json({
+        				success: false
+        			});
+
+        			return;
+        		}
+
+        		smtpTransport.sendMail({  //email options
+        			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+        			to: data.email , // receiver
+        			subject: "LastPlay Password Reset", // subject
+        			html: "Click here to reset your password:  " +"http://lastplay.live/reset?token="+ token  // body
+        		}, function(error, response){  //callback
+        			if(error) {
+        				console.log('error');
+        			} else {
+        				console.log("Message sent.");
+        			}
+
+        			res.json({
+        				success: true
+        			});
+
+        			smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+        		});
+			}
+
+		});
+	},
+
+    password: function (req, res) {
+		console.log("hey")
 	}
-};
+}
