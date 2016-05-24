@@ -37,10 +37,29 @@ window.app.controller('login', function($scope, $http, $window, $location) {
 
         $http.post("api/login/passwordrecovery", data).success(function(data) {
             if (data.success == true) {
-                sweetAlert("Awesome!", "Email has been sent.", "success");
-                $window.location.href = "/login";
+                swal({
+                    title: "Thanks!",
+                    text: "Email has ben sent!",
+                    type: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#A5DC86",
+                    confirmButtonText: "Awesome!",
+                    closeOnConfirm: true
+                }, function(){
+                    $window.location.href="/login";
+                });
             } else {
-              sweetAlert("Oops...", "Invalid Email", "error");
+              swal({
+                  title: "Oops...",
+                  text: "Invalid Email",
+                  type: "error",
+                  showCancelButton: false,
+                  confirmButtonColor: "#A5DC86",
+                  confirmButtonText: "Awesome!",
+                  closeOnConfirm: true
+              }, function(){
+                  $window.location.href="/login";
+              });
               return;
             }
         });

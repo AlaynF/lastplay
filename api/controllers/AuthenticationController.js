@@ -84,7 +84,7 @@ module.exports = {
 	contactmail: function (req, res) {
 		var data = req.body;
 		var nodemailer = require("nodemailer");
-		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
+		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Pinga123Supermario78	@smtp.gmail.com');
 
 		if (!data.email || !data.message) {
 			res.json({
@@ -117,7 +117,7 @@ module.exports = {
 	invite: function (req, res) {
 		var data = req.body;
 		var nodemailer = require("nodemailer");
-		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
+		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Pinga123Supermario78	@smtp.gmail.com');
 
 
 		if (!data.email) {

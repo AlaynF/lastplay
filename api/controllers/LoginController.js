@@ -118,10 +118,10 @@ module.exports = {
                     email:data.email,
                     id:user.id
                 };
-                console.log(user);
+
 				var token = encrypt(JSON.stringify(user));
                 var nodemailer = require("nodemailer");
-        		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
+        		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Pinga123Supermario78	@smtp.gmail.com');
 
 
         		if (!token) {
