@@ -37,8 +37,10 @@ window.app.controller('register', ['$scope', '$http', '$location', '$window', fu
                 });
             } else
 
+
             if(status == false){
-                sweetAlert("Oops...", "Username unavailable", "error");
+                sweetAlert("Oops...", "Username/Email unavailable", "error");
+                return;
             }
 
         });

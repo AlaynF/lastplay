@@ -43,8 +43,9 @@ module.exports = {
 	register: function (req, res) {
 		var user = req.body;
 
+
 		if (user.password !== user.confirmPassword) {
-			return res.json(401, {err: 'Password doesn\'t match, What a shame!'});
+			return res.json(401, {err: 'Password doesn\'t match, What a shame!'})
 		}
 
 		Users.create({

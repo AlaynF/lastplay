@@ -4,7 +4,6 @@ window.app.controller('contact', ['$scope', '$http', '$window', function($scope,
     var email_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 
-
     $scope.clear = function() {
         $scope.email = "";
         $scope.contact = ""
