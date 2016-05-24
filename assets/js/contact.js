@@ -1,4 +1,4 @@
-window.app.controller('contact', function($scope, $http, $window) {
+window.app.controller('contact', ['$scope', '$http', '$window', function($scope, $http, $window) {
     document.title="Contact";
 
     var email_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -10,7 +10,7 @@ window.app.controller('contact', function($scope, $http, $window) {
         $scope.contact = ""
     }
 
-    
+
     $scope.message = function() {
         if (!$scope.email || !$scope.contact) {
             sweetAlert("Oops...", "Please enter information", "error");
@@ -82,4 +82,4 @@ window.app.controller('contact', function($scope, $http, $window) {
     }
 
 
-});
+}]);

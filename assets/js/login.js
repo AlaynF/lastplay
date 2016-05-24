@@ -1,4 +1,4 @@
-window.app.controller('login', function($scope, $http, $window, $location) {
+window.app.controller('login', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
     document.title="Login";
     $scope.modal = "modal";
 
@@ -102,4 +102,4 @@ window.app.controller('login', function($scope, $http, $window, $location) {
         });
     }
 
-})
+}])

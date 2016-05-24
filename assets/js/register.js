@@ -1,4 +1,4 @@
-window.app.controller('register', function($scope, $http, $location, $window) {
+window.app.controller('register', ['$scope', '$http', '$location', '$window', function($scope, $http, $location, $window) {
     document.title="Register";
 
     var email_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -44,4 +44,4 @@ window.app.controller('register', function($scope, $http, $location, $window) {
         });
     }
 
-});
+}]);

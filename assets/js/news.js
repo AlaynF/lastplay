@@ -1,4 +1,4 @@
-window.app.controller('news', function($scope, $http, $window) {
+window.app.controller('news', ['$scope', '$http', '$window', function($scope, $http, $window) {
     document.title="Newsletter";
 
     var email_reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -33,4 +33,4 @@ window.app.controller('news', function($scope, $http, $window) {
             $window.location.href="/home";
         });
     }
-});
+}]);

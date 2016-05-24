@@ -1,6 +1,6 @@
 /* SHIT IS IN SCRAPE.JS FOR LOGIN CONTROL */
 
-window.app.controller('home', function($scope, $http, $location, $window, $filter) {
+window.app.controller('home', ['$scope', '$http', '$location', '$window', '$filter', function($scope, $http, $location, $window, $filter) {
     document.title="Home";
     $scope.allgames;
     $scope.nbatitles;
@@ -72,4 +72,4 @@ window.app.controller('home', function($scope, $http, $location, $window, $filte
     };
 
 
-});
+}]);
