@@ -42,10 +42,10 @@ module.exports.routes = {
       action: 'render_register'
     },
 
-    '/subscription': {
-      controller: 'Authentication',
-      action: 'render_subscription'
-    },
+    // '/subscription': {
+    //   controller: 'Authentication',
+    //   action: 'render_subscription'
+    // },
 
     '/channel1': {
       controller: 'Authentication',
