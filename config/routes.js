@@ -42,6 +42,11 @@ module.exports.routes = {
       action: 'render_register'
     },
 
+    '/subscription': {
+      controller: 'Authentication',
+      action: 'render_subscription'
+    },
+
     '/channel1': {
       controller: 'Authentication',
       action: 'render_channel1'
