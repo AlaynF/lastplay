@@ -58,6 +58,7 @@ module.exports.policies = {
 
     'LoginController': {
         'logout': true,
+        'render_recover': 'recoverpassword',
         '*': 'hassession' // We dont need authorization here, allowing public access
     }
 };

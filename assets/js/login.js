@@ -1,4 +1,4 @@
-window.app.controller('login', function($scope, $http, $window) {
+window.app.controller('login', function($scope, $http, $window, $location) {
     document.title="Login";
     $scope.modal = "modal";
 
@@ -30,12 +30,12 @@ window.app.controller('login', function($scope, $http, $window) {
     $scope.recover = function() {
         console.log('hey');
         var data = {
-            email: $scope.emailpassword
+            email: $scope.emailpassword.toLowerCase()
           };
 
           console.log(data);
 
-        $http.post("api/login/password", data).success(function(data) {
+        $http.post("api/login/passwordrecovery", data).success(function(data) {
             if (data.success == true) {
                 sweetAlert("Awesome!", "Email has been sent.", "success");
                 $window.location.href = "/login";
@@ -47,23 +47,25 @@ window.app.controller('login', function($scope, $http, $window) {
 
     }
 
-    $scope.submitpassword = function () {
+    $scope.submitInfo = function () {
         var data = {
             password: $scope.password,
-            confirmPassword: $scope.confirmPassword
+            confirmPassword: $scope.confirmPassword,
+            token: location.search.split('token=')[1]
         };
 
+        console.log(data);
 
         if(!data.password) {
             sweetAlert("Oops...", "Missing information", "error");
             return;
         }
 
-        $http.post("api/login/passwordupdate", data).success(function(data,err) {
+        $http.post("api/login/password", data).success(function(data,err) {
             if (data.success == true) {
                 swal({
                     title: "Thanks!",
-                    text: "You're all signed up!",
+                    text: "You're all set!",
                     type: "success",
                     showCancelButton: false,
                     confirmButtonColor: "#A5DC86",

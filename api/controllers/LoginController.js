@@ -1,3 +1,4 @@
+
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'd6F3Efeq';
@@ -29,7 +30,6 @@ module.exports = {
 	render_recover: function (req, res) {
 		res.view('recover', {
 			error_message: '',
-			layout: 'login_layout'
 		});
 	},
 
@@ -119,12 +119,12 @@ module.exports = {
                     id:user.id
                 };
                 console.log(user);
-				var token = encrypt(JSON.stringify(data.email));
+				var token = encrypt(JSON.stringify(user));
                 var nodemailer = require("nodemailer");
         		var smtpTransport = nodemailer.createTransport('smtps://lastplayus%40gmail.com:Supermario78	@smtp.gmail.com');
 
 
-        		if (!info) {
+        		if (!token) {
         			res.json({
         				success: false
         			});
@@ -136,7 +136,7 @@ module.exports = {
         			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
         			to: data.email , // receiver
         			subject: "LastPlay Password Reset", // subject
-        			html: "Click here to reset your password:  " +"http://lastplay.live/reset?token="+ token  // body
+        			html: "Click here to reset your password:  " +"http://lastplay.live/recover?token="+ token  // body
         		}, function(error, response){  //callback
         			if(error) {
         				console.log('error');
@@ -156,6 +156,36 @@ module.exports = {
 	},
 
     password: function (req, res) {
-		console.log("hey")
+        var data = req.body;
+        var info = JSON.parse(decrypt(data.token));
+
+        if (data.password !== data.confirmPassword) {
+            return res.json({success: false});
+        }
+
+        Users.findOne({
+            email: info.email
+        }).exec(function (err, user) {
+            if (err) {
+                console.log(err);
+                return res.json({success: false});
+            }
+
+            if (!user) {
+				return res.json({success: false});
+            }
+
+            user.password = data.password;
+
+            user.save(function(err, user) {
+                return res.json({success: true});
+            });
+
+            console.log(user);
+
+        });
+
+        console.log('ok');
+
 	}
 }
