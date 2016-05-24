@@ -34,9 +34,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <!--STYLES-->
-        <link rel="stylesheet" href="/styles/bulma.min.css">
-        <link rel="stylesheet" href="/styles/importer.css">
-        <link rel="stylesheet" href="/styles/sweetalert.css">
+        <link rel="stylesheet" href="/min/production.min.css">
         <!--STYLES END-->
     </head>
 
@@ -44,9 +42,9 @@
     <body ng-app="superfood">
 
         <nav class="nav has-shadow">
-            <div style="margin-left:10px;" class="nav-left">
+            <div class="nav-left lm">
                 <a href="/home">
-                    <img style="width:147px" src="/images/logo.png">
+                    <img class="llogonav" src="/images/logo.png">
                 </a>
             </div>
             <div class="nav-center">
@@ -99,7 +97,7 @@
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHLwYJKoZIhvcNAQcEoIIHIDCCBxwCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBBzeaZSe1ntrStD8vqTVY9s4kQFaTkxHze96cdae038nk5uY6OG74psq5kmYA34FCIE5WyH3LPEVIbixzRdCbAnpFOPylZIAF1dHx6nG8R8YHflSV/r0z44I1O8Je0e70b9WYFf4Y4J3kjrH786BUPGvDjsbbwSbWZ4QjBMg+6+jELMAkGBSsOAwIaBQAwgawGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIup6Whw8nTHGAgYjmNa4WylGO4E1qICSYApfCh4U0jDcNFzdrM+rtvG9nkeK4N9waYfJv+DM3DN4X/J7kSXq4OD4/zZZ58wk7NiVfBIb9Io8/S/ywZIt1FU+VTkbOds7Qj5Za2nuYzNwl0Pm2NR2BahnX7481p5uaXR23S1Vt3x4nCY/aQH6s5gEH93QNZQdmnOC3oIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTYwNTI0MTc0ODE4WjAjBgkqhkiG9w0BCQQxFgQUATIa7wutiNWolZDIkDMq84s35aYwDQYJKoZIhvcNAQEBBQAEgYBhqhrjhOL/PLIrwRCHPZLzteqN+zYzQruUD8fGxDP9K9bKBOxSWRuSD9WRQCfxjSgFXi9uisNB/KOJ9ZqShSVSzAVhs4YxQrfj+5GZLWo6YAQGJ9FiqTEyKDtQTsRjYpxbAByZG6oft+ZZ5cCQ5OQj+Yc13r/R4W+CfVZ3LyE6Tg==-----END PKCS7-----">
-                        <button style="margin-right:8px" class="button is-primary" name="submit">
+                        <button class="button is-primary ppb" name="submit">
                         <span class="icon">
                             <i class="fa fa-paypal"></i>
                         </span>
@@ -180,16 +178,7 @@
 
 
       <!--SCRIPTS-->
-      <script src="/js/dependencies/sails.io.js"></script>
-      <script src="/js/dependencies/hls.js"></script>
-      <script src="/js/dependencies/sweetalert.min.js"></script>
-      <script src="/js/ang.js"></script>
-      <script src="/js/contact.js"></script>
-      <script src="/js/home.js"></script>
-      <script src="/js/login.js"></script>
-      <script src="/js/news.js"></script>
-      <script src="/js/register.js"></script>
-      <script src="/js/sweetalert.min.js"></script>
+      <script src="/min/production.min.js"></script>
       <!--SCRIPTS END-->
     </body>
 

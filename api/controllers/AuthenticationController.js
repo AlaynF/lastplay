@@ -132,7 +132,7 @@ module.exports = {
 			from: "Last Play <Lastplayus@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
 			to: data.email , // receiver
 			subject: "Live stream invitation", // subject
-			html: res.render('email')
+			html: "You've been invited to watch the game with us at Lastplay.live !"
 
 		},
 		function(error, response){  //callback

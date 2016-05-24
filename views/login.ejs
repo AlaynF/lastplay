@@ -2,62 +2,60 @@
 	<%= error_message %>
 <% } %>
 
-<div style="margin-top: 100px;width:250" ng-controller='login'>
+<div class="ltop container" ng-controller='login'>
 
-
-	<div style="width:230px" class="container">
-		<img class="logopic" width="230px" src="/images/logo.png"/>
+	<div class="container loglogo ">
+		<img class="logopic loglogo" src="/images/logo.png"/>
 	</div>
 
-	<div style="padding-top: 2px; width: 230px" class="container">
+	<div class="container linput">
 		<p class="control has-icon">
-			<input class="input" style="width: 200px" ng-model="username" type="text" placeholder="Username">
+			<input class="input linputbar"  ng-model="username" type="text" placeholder="Username">
 			<i class="fa fa-user"></i>
 		</p>
 	</div>
 
-	<div class="container" style="padding-top: 2px;width: 230px">
-		<p class="control has-icon">
-			<input style="width: 200px" class="input" ng-model="password" type="password" placeholder="Password">
+	<div class="container linput" >
+		<p class="control has-icon linput">
+			<input class="input linputbar" ng-model="password" type="password" placeholder="Password">
 			<i class="fa fa-lock"></i>
 		</p>
-		<div style="text-align:center;width:200px;margin-left:0px" class="container">
-		<a style="color:black" ng-click="open()">Forgot Password?</a>
-		</div>
 	</div>
 
-	<div style="padding-top: 8px; width: 165px" class="container" >
-		<button style="width: 130px" class="button is-success" ng-click="login()" class="padding">Submit</button>
+	<div class="container lbu">
 		<p>
-			<div style="width:115px" class="container">
-				<a style="width: 80px;margin-top:5px" class="button is-dark" href="/register" class="padding">Register</a>
-			</div>
+			<a class="black forgot" ng-click="open()">Forgot Password?</a>
+		</p>
+		<p>
+			<button class="button is-success lsb" ng-click="login()" class="padding">Submit</button>
+		</p>
+		<p>
+			<a class="button is-dark lrb" href="/register" class="padding">Register</a>
 		</p>
 	</div>
 
-
 	<div ng-class="modal">
-	  <div ng-click="open()" class="modal-background"></div>
-	  <div style="width:400px"  class="modal-card">
-	    <header style="text-align:center" class="modal-card-head">
-	      <p class="modal-card-title">Forgot Password?</p>
-	      <button ng-click="open()" class="delete"></button>
-	    </header>
-		<span style="text-aligned:center;margin-left:10px;margin-top:10px;margin-right:10px">
-		To reset your password, enter the email address you used to register on Lastplay!
-		<span>
-	    <section class="modal-card-body">
+		<div ng-click="open()" class="modal-background"></div>
+		<div class="modal-card contactwidth">
+			<header style="text-align:center" class="modal-card-head">
+			  <p class="modal-card-title PfontL">Forgot Password?</p>
+			  <button ng-click="open()" class="delete"></button>
+			</header>
+			<span class="modaltext PfontL">
+			To reset your password, enter the email address you used to register on Lastplay!
+			</span>
+			<section class="modal-card-body">
 				<p class="control has-icon">
-    				<input ng-model="emailpassword" class="input" type="email" placeholder="Email">
+					<input ng-model="emailpassword" class="input" type="email" placeholder="Email">
 					<i class="fa fa-envelope"></i>
 				</p>
-	    </section>
-	    <footer class="modal-card-foot container">
-			<div style="width:310" class="container">
-	    		<a ng-click="recover()" style="width:300" class="button is-success">Send my Password</a>
-			</div>
-	    </footer>
-	  </div>
+			</section>
+			<footer class="modal-card-foot">
+				<div class="container mb">
+					<a ng-click="recover()" style="width:300" class="button is-success">Send my Password</a>
+				</div>
+			</footer>
+		</div>
 	</div>
 
 </div>

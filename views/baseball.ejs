@@ -1,19 +1,19 @@
-<div ng-controller="home" class="container baseballmargin">
+<div ng-controller="home" class="container sportmargin">
     <table class="table is-bordered is-striped is-narrow">
         <thead>
             <tr>
-                <th class="baseballsport">Sport</th>
-                <th class="baseballlive">Live Event</th>
-                <th class="baseballtime">Time</th>
+                <th class="sportsport">Sport</th>
+                <th class="sportlive">Live Event</th>
+                <th class="sporttime">Time</th>
                 <!-- <th style="text-align: center" >Score</th>
                 <th>Link</th> -->
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="ball in baseball">
-                <td class="baseballalign"><i class="baseballicon"><img ng-src='{{ball.pic}}'/></i>  {{ball.sport}}</td>
-                <td class="baseballalign"> {{ball.away}} @ {{ball.home}}</td>
-                <td class="baseballalign">{{ball.time}}</td>
+                <td class="sportalign"><i class="sporticon"><img ng-src='{{ball.pic}}'/></i>  {{ball.sport}}</td>
+                <td class="sportalign"> {{ball.away}} @ {{ball.home}}</td>
+                <td class="sportalign">{{ball.time}}</td>
                 <!-- <td style="text-align: center">0-0</td>
                 <td class="is-link is-icon">
                     <a ng-href="#/heat">

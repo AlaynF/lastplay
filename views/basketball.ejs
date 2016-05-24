@@ -1,19 +1,19 @@
-<div ng-controller="home" style="margin-top:100px" class="container">
+<div ng-controller="home" class="container sportmargin">
     <table class="table is-bordered is-striped is-narrow">
         <thead>
             <tr>
-                <th style="width:150px;text-align: center">Sport</th>
-                <th style="text-align: center" style="width:600px">Live Event</th>
-                <th style="width:150px;text-align: center">Time</th>
+                <th class="sportsport">Sport</th>
+                <th class="sportlive">Live Event</th>
+                <th class="sporttime">Time</th>
                 <!-- <th style="text-align: center" >Score</th>
                 <th>Link</th> -->
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="ball in basketball">
-                <td style="text-align: center" ><i><img style="width:32px" ng-src='{{ball.pic}}'/></i>  {{ball.sport}}</td>
-                <td style="text-align: center"> {{ball.away}} @ {{ball.home}}</td>
-                <td style="text-align: center">{{ball.time}}</td>
+                <td class="sportalign" ><i><img class="basketballicon" ng-src='{{ball.pic}}'/></i>  {{ball.sport}}</td>
+                <td class="sportalign"> {{ball.away}} @ {{ball.home}}</td>
+                <td class="sportalign">{{ball.time}}</td>
                 <!-- <td style="text-align: center">0-0</td>
                 <td class="is-link is-icon">
                     <a href="#">
