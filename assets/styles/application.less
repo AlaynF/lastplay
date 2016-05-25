@@ -84,6 +84,11 @@ a.link:hover {
 
 .playercontainer {
     width:900px;
+    margin-top: 5px;
+}
+
+.filmcontainer {
+    width:900px;
 }
 
 .invite {
@@ -219,6 +224,31 @@ a.link:hover {
   border: 1px solid #ffffff;
 }
 
+
+div#overlay {
+	display:none;
+	z-index: 2;
+	background-color:black;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	text-align:center;
+    opacity: 0.8;
+}
+
+img#lightSwitch {
+	position:relative;
+	z-index: 3;
+	background-color:black;
+	cursor:pointer;
+}
+
+div#special {
+	position:relative;
+	z-index: 4;
+}
 // #pricing-table {
 //   padding-top: 50px;
 // }
