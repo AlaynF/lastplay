@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-cast-api-enabled="true">
     <head>
         <title><%=typeof title == 'undefined' ? 'LastPlay' : title%></title>
 
         <!-- Viewport mobile tag for sensible mobile support -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/clappr.rtmp/latest/rtmp.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
         <script src="//vjs.zencdn.net/5.8/video.min.js"></script>
+
 
                 <!--
         Stylesheets and Preprocessors
@@ -32,12 +31,14 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
         -->
+
         <link href="http://vjs.zencdn.net/5.10.2/video-js.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <!--STYLES-->
         <link rel="stylesheet" href="/styles/bulma.min.css">
         <link rel="stylesheet" href="/styles/importer.css">
         <link rel="stylesheet" href="/styles/sweetalert.css">
+        <link rel="stylesheet" href="/styles/videojs.chromecast.css">
         <!--STYLES END-->
     </head>
 
@@ -90,10 +91,10 @@
             </span>
 
             <div class="nav-right nav-menu">
-                <a class="nav-item" href="/home">
+                <a class="nav-item Pfont" href="/home">
                     Home
                 </a>
-                <a class="nav-item" href="/contact">
+                <a class="nav-item Pfont" href="/contact">
                     Contact
                 </a>
                 <span class="nav-item">
@@ -104,20 +105,20 @@
                         <span class="icon">
                             <i class="fa fa-paypal"></i>
                         </span>
-                        <span>Donate</span>
+                        <span class="Pfont">Donate</span>
                     </button>
                     </form>
                     <a class="button is-success" href="/invite" >
                         <span class="icon">
                             <i class="fa fa-gift"></i>
                         </span>
-                        <span>Invite</span>
+                        <span class="Pfont" >Invite</span>
                     </a>
                     <a class="button is-dark" href="/logout">
                         <span class="icon">
                             <i class="fa fa-sign-out"></i>
                         </span>
-                        <span>Logout</span>
+                        <span class="Pfont">Logout</span>
                     </a>
                 </span>
             </div>
@@ -184,6 +185,7 @@
       <script src="/js/dependencies/sails.io.js"></script>
       <script src="/js/dependencies/hls.js"></script>
       <script src="/js/dependencies/sweetalert.min.js"></script>
+      <script src="/js/dependencies/videojs.chromecast.js"></script>
       <script src="/js/ang.js"></script>
       <script src="/js/contact.js"></script>
       <script src="/js/home.js"></script>

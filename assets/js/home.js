@@ -60,7 +60,19 @@ window.app.controller('home', ['$scope', '$http', '$location', '$window', '$filt
         res.redirect('/login')
     };
 
-    function func_onclick(){
-        document.getElementById("initial_opacity_zero").style.opacity="0.6";
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+      videojs("really-cool-video", {
+        plugins: {
+          chromecast: {
+            appId: undefined,
+            metadata: {
+              title: "Title",
+              subtitle: "Subtitle"
+            }
+          }
+        }
+      });
+    });
+
+
 }])
