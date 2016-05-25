@@ -40,30 +40,6 @@ window.app.controller('home', ['$scope', '$http', '$location', '$window', '$filt
         //Fix Caps for game.sport
     });
 
-    window.onload = function(){
-        var player = new Clappr.Player({
-        source: "rtmp://server1.lastplay.live/live/test",
-        parentId: "#player-wrapper",
-        plugins: {'playback': [RTMP]},
-        rtmpConfig: {},
-        });
-
-        var player = new Clappr.Player({
-        source: "rtmp://server1.lastplay.live/live/espn",
-        parentId: "#player-wrapper1",
-        plugins: {'playback': [RTMP]},
-        rtmpConfig: {},
-        });
-
-        var player = new Clappr.Player({
-        source: "rtmp://server1.lastplay.live/live/mlb",
-        parentId: "#player-wrapper2",
-        plugins: {'playback': [RTMP]},
-        rtmpConfig: {},
-        });
-
-
-    }
 
     $scope.logout = function () {
         console.log('her');
