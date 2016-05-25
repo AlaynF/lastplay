@@ -9,15 +9,17 @@
       </div>
     </section>
     </div>
-    <div class="container invite">
-        <p class="control has-icon">
-            <input ng-model="email" class="input invite" type="email" placeholder="Email" name="email">
-            <i class="fa fa-envelope"></i>
-        </p>
+    <form ng-submit="invite()">
+        <div class="container invite">
+            <p class="control has-icon">
+                <input ng-model="email" class="input invite" type="email" placeholder="Email" name="email">
+                <i class="fa fa-envelope"></i>
+            </p>
 
-        <p class="control">
-            <button ng-click="invite()" class="button is-success">Submit</button>
-            <button ng-click="clear()" class="button is-outlined">Cancel</button>
-        </p>
-    </div>
+            <p class="control">
+                <button value="submit" type="submit" class="button is-success">Submit</button>
+                <button ng-click="clear()" class="button is-outlined">Cancel</button>
+            </p>
+        </div>
+    </form>
 </div>

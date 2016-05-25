@@ -5,48 +5,49 @@
                   <br>
                   <br>
     <% } %>
+    <form ng-submit="submitInfo()">
+        <div class="container regmain">
+            <div class="container reghd">
+                <h1 class="regh">Register</h1>
+            </div>
+            <div class="container regbox">
+                <p class="control has-icon">
+                    <input ng-model="name" class="input" placeholder="Full Name" >
+                    <i class="fa fa-spinner"></i>
+                </p>
+            </div>
 
-    <div class="container regmain">
-        <div class="container reghd">
-            <h1 class="regh">Register</h1>
-        </div>
-        <div class="container regbox">
-            <p class="control has-icon">
-                <input ng-model="name" class="input" placeholder="Full Name" >
-                <i class="fa fa-spinner"></i>
-            </p>
-        </div>
+            <div class="container regbox">
+                <p class="control has-icon">
+                    <input ng-model="email" class="input"  placeholder="E-Mail" >
+                    <i class="fa fa-envelope"></i>
+                </p>
+            </div>
 
-        <div class="container regbox">
-            <p class="control has-icon">
-                <input ng-model="email" class="input"  placeholder="E-Mail" >
-                <i class="fa fa-envelope"></i>
-            </p>
-        </div>
+            <div class="container regbox">
+                <p class="control has-icon">
+                    <input ng-model="username" class="input" placeholder="Username" >
+                    <i class="fa fa-user"></i>
+                </p>
+            </div>
 
-        <div class="container regbox">
-            <p class="control has-icon">
-                <input ng-model="username" class="input" placeholder="Username" >
-                <i class="fa fa-user"></i>
-            </p>
-        </div>
+            <div class="container regbox">
+                <p class="control has-icon">
+                    <input ng-model="password" type="password" class="input" placeholder="Password">
+                    <i class="fa fa-lock"></i>
+                </p>
+            </div>
 
-        <div class="container regbox">
-            <p class="control has-icon">
-                <input ng-model="password" type="password" class="input" placeholder="Password">
-                <i class="fa fa-lock"></i>
-            </p>
-        </div>
+            <div class="container regbox">
+                <p class="control has-icon">
+                    <input ng-model="confirmPassword" type="password" class="input" placeholder="Confirm Password">
+                    <i class="fa fa-lock"></i>
+                </p>
+            </div>
 
-        <div class="container regbox">
-            <p class="control has-icon">
-                <input ng-model="confirmPassword" type="password" class="input" placeholder="Confirm Password">
-                <i class="fa fa-lock"></i>
-            </p>
+            <div class="container regbut">
+                <button value="submit" type="submit" class="button is-success regw" type="submit" value="Submit">Submit</button>
+            </div>
         </div>
-
-        <div class="container regbut">
-            <button ng-click="submitInfo()" class="button is-success regw" type="submit" value="Submit">Submit</button>
-        </div>
-    </div>
+    </form>
 </div>

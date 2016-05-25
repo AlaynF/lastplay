@@ -1,21 +1,23 @@
 
 <div ng-controller='contact' class="container contactwidth sportmargin">
-    <label class="label">E-mail</label>
-    <p class="control has-icon">
-        <input ng-model="email" class="input contactwidth" type="text" placeholder="Email" name="email">
-        <i class="fa fa-envelope"></i>
-    </p>
-
-    <label class="label">Message</label>
-    <div class="contactwidth">
-        <p class="control">
-            <textarea ng-model="contact" class="textarea" name="contact" placeholder="Send us a message!"></textarea>
+    <form ng-submit="message()">
+        <label class="label">E-mail</label>
+        <p class="control has-icon">
+            <input ng-model="email" class="input contactwidth" type="text" placeholder="Email" name="email">
+            <i class="fa fa-envelope"></i>
         </p>
-    </div>
-    <br>
 
-    <p class="control">
-        <button ng-click="message()" class="button is-success">Submit</button>
-        <button ng-click="clear()" class="button is-outlined">Cancel</button>
-    </p>
+        <label class="label">Message</label>
+        <div class="contactwidth">
+            <p class="control">
+                <textarea ng-model="contact" class="textarea" name="contact" placeholder="Send us a message!"></textarea>
+            </p>
+        </div>
+        <br>
+
+        <p class="control">
+            <button value="submit" type="submit" class="button is-success">Submit</button>
+            <button ng-click="clear()" class="button is-outlined">Cancel</button>
+        </p>
+    </form>
 </div>
