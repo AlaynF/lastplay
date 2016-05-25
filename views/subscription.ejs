@@ -10,13 +10,13 @@
 
 
     <section class="container" style="width:930" id="pricing-table">
-        <div style="width:950px" class="pricing container">
+        <div class="pricing container">
             <div style="width:300px;float:left" class="col-md-4 col-sm-12 col-xs-12 container">
                 <div class="pricing-table">
                     <div class="pricing-header">
                         <p class="pricing-title">1 month</p>
-                        <p class="pricing-rate"><sup>$</sup>5<span style="font-size:22px;margin-bottom:20px">.95</span></p>
-                        <p class="Pfont" style="font-size:30px;color:#7bbf51"> + 3 days free! </p>
+                        <p class="pricing-rate"><sup>$</sup>5<span>.95</span></p>
+                        <p class="PfontL" style="font-size:30px;color:#7bbf51"> + 3 days free! </p>
                     </div>
 
                     <div class="pricing-list">
@@ -36,7 +36,9 @@
                                 </form>
                             </li>
                             <li>
-                                <img style="width:200px" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+                            <form action='checkout.java' METHOD='POST'>
+                            	<input style="width:200px" type='image' name='paypal_submit' id='paypal_submit'  src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png' border='0' align='top' alt='Pay with PayPal'/>
+                            </form>
                             </li>
                         </ul>
                     </div>
@@ -47,8 +49,8 @@
                 <div class="pricing-table">
                     <div class="pricing-header">
                         <p class="pricing-title">3 months</p>
-                        <p class="pricing-rate"><sup>$</sup>15<span style="font-size:22px;margin-bottom:20px">.95</span></p>
-                        <p class="Pfont" style="font-size:30px;color:#7bbf51"> + One week free! </p>
+                        <p class="pricing-rate"><sup>$</sup>15<span>.95</span></p>
+                        <p class="PfontL" style="font-size:30px;color:#7bbf51"> + One week free! </p>
                     </div>
 
                     <div class="pricing-list">
@@ -68,7 +70,12 @@
                                 </form>
                             </li>
                             <li>
-                                <img style="width:200px" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                                    ">
+                                    <input style="width:200px" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                </form>
                             </li>
                         </ul>
                     </div>
@@ -79,8 +86,8 @@
                 <div class="pricing-table">
                     <div class="pricing-header">
                         <p class="pricing-title">6 months</p>
-                        <p class="pricing-rate"><sup>$</sup>29<span style="font-size:22px;margin-bottom:20px">.95</span></p>
-                        <p class="Pfont" style="font-size:30px;color:#7bbf51"> + Two weeks free! </p>
+                        <p class="pricing-rate"><sup>$</sup>29<span>.95</span></p>
+                        <p class="PfontL" style="font-size:30px;color:#7bbf51"> + Two weeks free! </p>
                     </div>
 
                     <div class="pricing-list">
@@ -100,12 +107,444 @@
                                 </form>
                             </li>
                             <li>
-                                <img style="width:200px" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHNwYJKoZIhvcNAQcEoIIHKDCCByQCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBPBzI3MGQJY7GRkuIeV0LfwhomgRcDedpvfqwEjbgnlS2dmAi5VhyeGHkV/4U7p0GKScKLAGpW6y4tuuB4QAB0mVAn4edHyTsrbsKjSR50azDrapVJgqwk/RUy6eQjB245bOEo/aBEW6Hvqorosuv6iyMG2/omW2y7GJE49t1d1zELMAkGBSsOAwIaBQAwgbQGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQI8RvqOZDR71WAgZA+QKX+Gyk/3BjZMl4/3ZSmBcoXcTknUlF4mWFLT4qQcbYDKP7Nv9mhXrH8BBarYwsk0BOCAZ+lvktV8Q2n5EKr9E5PPH08QrD6raE/rbcc3KCIduT9H1Y/Bk54vXgfX8bzKlWkSsJ3z1+HNsGHD1tyRifEGNP5VNDKDzGBwYyg/OP8LvlpEsi/7VPYTTFY4UCgggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xNjA1MjUwODE4MTFaMCMGCSqGSIb3DQEJBDEWBBQ2lo64cgxq1PMaWBou3j7qFKk1CDANBgkqhkiG9w0BAQEFAASBgKgQIRo4DR/PaJIhxiAwMgct4pi6EicxyC4C27o8N8frdtx2rFn86JTQ1NJt9K4UMhlSDysetd3JYgTl+KsKujEnKi5CJC8Whwtp/Mc5QWhttjOpGfBvq+M65zXioXPOi6abiHFBYKMwi3yzdRBOzLw6hd+qWvhORYehWkTaYWPa-----END PKCS7-----
+                                    ">
+                                    <input style="width:200px" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                </form>
+                                </form>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>            <!-- <table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table><!-- PayPal Logo -->
+    </section>            <!-- <table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table> PayPal Logo -->
 </div>
+
+
+
+<!-- Add Digital goods in-context experience. Ensure that this script is added before the closing of html body tag -->
+
+<script src='https://www.paypalobjects.com/js/external/dg.js' type='text/javascript'></script>
+
+
+<script>
+
+	var dg = new PAYPAL.apps.DGFlow(
+	{
+		trigger: 'paypal_submit',
+		expType: 'instant'
+		 //PayPal will decide the experience type for the buyer based on his/her 'Remember me on your computer' option.
+	});
+
+</script>
+
+
+package com.paypal.dg;
+
+/*==================================================================
+ PayPal Express Checkout Call
+ ===================================================================
+ */
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import com.paypal.dg.PaypalFunctions;
+
+public class Checkout extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// Use "request" to read incoming HTTP headers (e.g. cookies)
+		// and HTML form data (e.g. data the user entered and submitted)
+
+		// Use "response" to specify the HTTP response line and headers
+		// (e.g. specifying the content type, setting cookies).
+
+		/*
+		 *  The paymentAmount is the total value of ' the purchase. ' '
+		 * TODO:  Enter the total Payment Amount within the quotes. ' example :
+		 * paymentAmount = "15.00";
+		 */
+		String paymentAmount = "5.95";
+
+		/*
+		 * '------------------------------------ ' The returnURL is the location
+		 * where buyers return to when a ' payment has been succesfully
+		 * authorized. ' ' This is set to the value entered on the Integration
+		 * Assistant '------------------------------------
+		 */
+
+		String returnURL = "lastplay.live/home";
+
+		/*
+		 * '------------------------------------ ' The cancelURL is the location
+		 * buyers are sent to when they hit the ' cancel button during
+		 * authorization of payment during the PayPal flow ' ' This is set to
+		 * the value entered on the Integration Assistant
+		 * '------------------------------------
+		 */
+		String cancelURL = "lastplay.live/subscription";
+
+		/*
+		 * '------------------------------------ ' The items hashmap contains
+		 * the details of each item '------------------------------------
+		 * TODO: change "item name" to desired item name
+		 */
+
+		Map item = new HashMap();
+		item.put("name", "Donation");
+		item.put("amt", paymentAmount);
+		item.put("qty", "1");
+
+		/*
+		 * '------------------------------------ ' Calls the SetExpressCheckout
+		 * API call ' ' The SetExpressCheckout function is defined in the file
+		 * PayPalFunctions.java,
+		 * '-------------------------------------------------
+		 */
+		PaypalFunctions ppf = new PaypalFunctions();
+		HashMap nvp = ppf.setExpressCheckout(paymentAmount, returnURL,
+				cancelURL, item);
+		String strAck = nvp.get("ACK").toString();
+		if (strAck != null && strAck.equalsIgnoreCase("Success")) {
+
+			// ' Redirect to paypal.com
+			String redirectURL = "https://www.sandbox.paypal.com/incontext?token="
+					+ nvp.get("TOKEN").toString();
+
+			response.sendRedirect(redirectURL);
+		} else {
+			// Display a user friendly Error on the page using any of the
+			// following error information returned by PayPal
+
+			String ErrorCode = nvp.get("L_ERRORCODE0").toString();
+			String ErrorShortMsg = nvp.get("L_SHORTMESSAGE0").toString();
+			String ErrorLongMsg = nvp.get("L_LONGMESSAGE0").toString();
+			String ErrorSeverityCode = nvp.get("L_SEVERITYCODE0").toString();
+		}
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import com.paypal.dg.PaypalFunctions;
+
+public class Cancel extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+response.setContentType("text/html");
+
+		response.getWriter().println("<script>");
+		response.getWriter().println("alert(\"Payment Failed\");");
+		response.getWriter()
+				.println("// add relevant message above or remove the line if not required");
+		response.getWriter().println("window.onload = function(){");
+		response.getWriter().println("if(window.opener){");
+		response.getWriter().println("window.close();");
+		response.getWriter().println("	}");
+		response.getWriter().println("else{");
+		response.getWriter().println("if(top.dg.isOpen() == true){");
+		response.getWriter().println("top.dg.closeFlow();");
+		response.getWriter().println("return true;");
+		response.getWriter().println("}");
+		response.getWriter().println("}");
+		response.getWriter().println("	};");
+
+		response.getWriter().println("</script>");
+
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
+
+package com.paypal.dg;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.io.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import com.paypal.dg.PaypalFunctions;
+
+public class OrderConfirm extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		/*
+		 * '------------------------------------ ' This is the landing page
+		 * after authorizing payment on PayPal lightbox ' Get the token
+		 * parameter from Querystring '------------------------------------
+		 */
+		String token = request.getParameter("token");
+		String payerId = request.getParameter("PayerID");
+
+		if (token != null) {
+
+			// IMPORTANT NOTE: Please import Class paypalfunctions if not in the
+			// same package level.
+			// import paypalfunctions;
+
+			/*
+			 * '------------------------------------ ' this step is required to
+			 * get ToatalPaymentAmount to make DoExpressCheckout API call, '
+			 * this step is required only if you are not storing the
+			 * SetExpressCheckout API call's request values in you database. '
+			 * ------------------------------------
+			 */
+			PaypalFunctions ppf = new PaypalFunctions();
+			HashMap nvp = ppf.getPaymentDetails(token);
+
+			String strAck = nvp.get("ACK").toString();
+			String finalPaymentAmount = null;
+			if (strAck != null
+					&& (strAck.equalsIgnoreCase("Success") || strAck
+							.equalsIgnoreCase("SuccessWithWarning"))) {
+				/*
+				 * '------------------------------------ ' The paymentAmount is
+				 * the total value of the purchase '
+				 */
+				finalPaymentAmount = nvp.get("AMT").toString();
+			}
+			String serverName = request.getServerName();
+
+			Map item = new HashMap();
+			item.put("name", nvp.get("L_PAYMENTREQUEST_0_NAME0"));
+			item.put("amt", nvp.get("L_PAYMENTREQUEST_0_AMT0"));
+			item.put("qty", nvp.get("L_PAYMENTREQUEST_0_QTY0"));
+			/*
+			 * '------------------------------------ ' Calls the
+			 * DoExpressCheckoutPayment API call ' ' The ConfirmPayment function
+			 * is defined in the file PayPalFunctions.java ' that should be
+			 * included at the top of this file.
+			 * '-------------------------------------------------
+			 */
+
+			nvp = ppf.confirmPayment(token, payerId, finalPaymentAmount,
+					serverName, item);
+
+			strAck = nvp.get("ACK").toString();
+
+
+			if (strAck != null
+					&& (strAck.equalsIgnoreCase("Success") || strAck
+							.equalsIgnoreCase("SuccessWithWarning"))) {
+				/*
+				 * TODO: Proceed with desired action after the payment (ex:
+				 * start download, start streaming, Add coins to the game.. etc)
+				 * '
+				 * *************************************************************
+				 * ******************************************************* ' '
+				 * THE PARTNER SHOULD SAVE THE KEY TRANSACTION RELATED
+				 * INFORMATION LIKE ' transactionId & orderTime ' IN THEIR OWN
+				 * DATABASE ' AND THE REST OF THE INFORMATION CAN BE USED TO
+				 * UNDERSTAND THE STATUS OF THE PAYMENT '
+				 * '**********************
+				 * ***************************************
+				 * *******************************************************
+				 */
+
+				String transactionId = nvp.get("PAYMENTINFO_0_TRANSACTIONID").toString(); // '
+																			// Unique
+																			// transaction
+																			// ID
+																			// of
+																			// the
+																			// payment.
+																			// Note:
+																			// If
+																			// the
+																			// PaymentAction
+																			// of
+																			// the
+																			// request
+																			// was
+																			// Authorization
+																			// or
+																			// Order,
+																			// this
+																			// value
+																			// is
+																			// your
+																			// AuthorizationID
+																			// for
+																			// use
+																			// with
+																			// the
+																			// Authorization
+																			// &
+																			// Capture
+																			// APIs.
+				String transactionType = nvp.get("PAYMENTINFO_0_TRANSACTIONTYPE").toString(); // '
+																				// The
+																				// type
+																				// of
+																				// transaction
+																				// Possible
+																				// values:
+																				// l
+																				// cart
+																				// l
+																				// express-checkout
+				String paymentType = nvp.get("PAYMENTINFO_0_PAYMENTTYPE").toString(); // '
+																		// Indicates
+																		// whether
+																		// the
+																		// payment
+																		// is
+																		// instant
+																		// or
+																		// delayed.
+																		// Possible
+																		// values:
+																		// l
+																		// none
+																		// l
+																		// echeck
+																		// l
+																		// instant
+				String orderTime = nvp.get("PAYMENTINFO_0_ORDERTIME").toString(); // '
+																	// Time/date
+																	// stamp of
+																	// payment
+				String amt = nvp.get("PAYMENTINFO_0_AMT").toString(); // ' The final amount
+														// charged, including
+														// any shipping and
+														// taxes from your
+														// Merchant Profile.
+				String currencyCode = nvp.get("PAYMENTINFO_0_CURRENCYCODE").toString(); // ' A
+																			// three-character
+																			// currency
+																			// code
+																			// for
+																			// one
+																			// of
+																			// the
+																			// currencies
+																			// listed
+																			// in
+																			// PayPay-Supported
+																			// Transactional
+																			// Currencies.
+																			// Default:
+																			// USD.
+				String feeAmt = nvp.get("PAYMENTINFO_0_FEEAMT").toString(); // ' PayPal fee
+																// amount
+																// charged for
+																// the
+																// transaction
+
+				String taxAmt = nvp.get("PAYMENTINFO_0_TAXAMT").toString(); // ' Tax charged
+																// on the
+																// transaction.
+
+				/*
+				 * ' Status of the payment: 'Completed: The payment has been
+				 * completed, and the funds have been added successfully to your
+				 * account balance. 'Pending: The payment is pending. See the
+				 * PendingReason element for more information.
+				 */
+
+				String paymentStatus = nvp.get("PAYMENTINFO_0_PAYMENTSTATUS").toString();
+
+				/*
+				 * 'The reason the payment is pending: ' none: No pending reason
+				 * ' address: The payment is pending because your customer did
+				 * not include a confirmed shipping address and your Payment
+				 * Receiving Preferences is set such that you want to manually
+				 * accept or deny each of these payments. To change your
+				 * preference, go to the Preferences section of your Profile. '
+				 * echeck: The payment is pending because it was made by an
+				 * eCheck that has not yet cleared. ' intl: The payment is
+				 * pending because you hold a non-U.S. account and do not have a
+				 * withdrawal mechanism. You must manually accept or deny this
+				 * payment from your Account Overview. ' multi-currency: You do
+				 * not have a balance in the currency sent, and you do not have
+				 * your Payment Receiving Preferences set to automatically
+				 * convert and accept this payment. You must manually accept or
+				 * deny this payment. ' verify: The payment is pending because
+				 * you are not yet verified. You must verify your account before
+				 * you can accept this payment. ' other: The payment is pending
+				 * for a reason other than those listed above. For more
+				 * information, contact PayPal customer service.
+				 */
+
+				String pendingReason = nvp.get("PAYMENTINFO_0_PENDINGREASON").toString();
+
+				/*
+				 * 'The reason for a reversal if TransactionType is reversal: '
+				 * none: No reason code ' chargeback: A reversal has occurred on
+				 * this transaction due to a chargeback by your customer. '
+				 * guarantee: A reversal has occurred on this transaction due to
+				 * your customer triggering a money-back guarantee. '
+				 * buyer-complaint: A reversal has occurred on this transaction
+				 * due to a complaint about the transaction from your customer.
+				 * ' refund: A reversal has occurred on this transaction because
+				 * you have given the customer a refund. ' other: A reversal has
+				 * occurred on this transaction due to a reason not listed
+				 * above.
+				 */
+
+				String reasonCode = nvp.get("PAYMENTINFO_0_REASONCODE").toString();
+
+				// Add javascript to close Digital Goods frame. You may want to
+				// add more javascript code to
+				// display some info message indicating status of purchase in
+				// the parent window
+				response.setContentType("text/html");
+				response.getWriter()
+						.println(
+								"<script>\n alert(\"Payment Successful\");\n// add relevant message above or remove the line if not required \n window.onload = function(){\nif(window.opener){\nwindow.close();\n}\nelse{\nif(top.dg.isOpen() == true){\ntop.dg.closeFlow();\nreturn true;\n}\n}\n};\n</script>");
+
+			} else {
+				// Display a user friendly Error on the page using any of the
+				// following error information returned by PayPal
+
+				String ErrorCode = nvp.get("L_ERRORCODE0").toString();
+				String ErrorShortMsg = nvp.get("L_SHORTMESSAGE0").toString();
+				String ErrorLongMsg = nvp.get("L_LONGMESSAGE0").toString();
+				String ErrorSeverityCode = nvp.get("L_SEVERITYCODE0")
+						.toString();
+
+				response.getWriter()
+						.println(
+								"<script>\n alert(\"Payment Failed\");\n// add relevant message above or remove the line if not required \n window.onload = function(){\nif(window.opener){\nwindow.close();\n}\nelse{\nif(top.dg.isOpen() == true){\ntop.dg.closeFlow();\nreturn true;\n}\n}\n};\n</script>");
+			}
+		}
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}
