@@ -14,6 +14,12 @@ module.exports = {
 		res.redirect('/register');
 	},
 
+	render_payment: function (req, res) {
+		res.view('home', {
+			error_message: ''
+		});
+	},
+
 	render_subscription: function (req, res) {
 		res.view('subscription', {
 			error_message: ''
