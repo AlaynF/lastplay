@@ -10,8 +10,8 @@
   <br>
 
 
-    <section class="container" style="width:930" class="pricing-table">
-        <div class="pricing-table-pricing container">
+    <section class="container" class="pricing-table">
+        <div class="pricingtable-pricing container">
             <div style="width:300px;float:left" class="col-md-4 col-sm-12 col-xs-12 container">
                 <div class="pricing-table-pricing-pricing-table">
                     <div class="pricing-header">
@@ -23,7 +23,7 @@
                     <div class="pricing-list">
                         <ul class="pul">
                             <li class="pli" style="margin-left:40px">
-                                <form action="/api/payment/charge5" method="POST">
+                                <form action="/api/payment/chargef" method="POST">
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_mD04U6bqTCyOjIXODlbxA4Am"
@@ -37,9 +37,11 @@
                                 </form>
                             </li>
                             <li class="pli">
-                            <form action='checkout.java' METHOD='POST'>
-                            	<input style="width:200px" type='image' name='paypal_submit' id='paypal_submit'  src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png' border='0' align='top' type="submit" alt='Pay with PayPal'/>
-                            </form>
+                                <form action="https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay" target="PPDGFrame" class="standard">
+                                <input style="width:200px" type="image" id="submitBtn" value="Pay with PayPal" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png">
+                                <input id="type" type="hidden" name="expType" value="mini">
+                                <input id="paykey" type="hidden" name="paykey" value="pay_key">
+                                </form>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +59,7 @@
                     <div class="pricing-list">
                         <ul class="pul">
                             <li class="pli" style="margin-left:40px">
-                                <form action="post15" method="POST">
+                                <form action="/api/payment/chargefi" method="POST">
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_mD04U6bqTCyOjIXODlbxA4Am"
@@ -75,7 +77,7 @@
                                     <input type="hidden" name="cmd" value="_s-xclick">
                                     <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
                                     ">
-                                    <input style="width:200px" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" border="0" type="submit" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <input style="width:200px" type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" border="0" name="submit"  alt="PayPal - The safer, easier way to pay online!">
 								</form>
                             </li>
                         </ul>
@@ -94,7 +96,7 @@
                     <div class="pricing-list">
                         <ul class="pul">
                             <li style="margin-left:40px" class="pli">
-                                <form action="post29" method="POST">
+                                <form action="/api/payment/chargetn" method="POST">
                                   <script
                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_mD04U6bqTCyOjIXODlbxA4Am"
@@ -124,20 +126,9 @@
     </section>            <!--<table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a></td></tr></table> PayPal Logo -->
 </div>
 
+<script type="text/javascript" charset="utf-8">
+var dgFlowMini = new PAYPAL.apps.DGFlowMini({trigger: 'submitBtn'});
+</script>
 
 
 <!-- Add Digital goods in-context experience. Ensure that this script is added before the closing of html body tag -->
-
-<script src='https://www.paypalobjects.com/js/external/dg.js' type='text/javascript'></script>
-
-
-<script>
-
-	var dg = new PAYPAL.apps.DGFlow(
-	{
-		trigger: 'paypal_submit',
-		expType: 'instant'
-		 //PayPal will decide the experience type for the buyer based on his/her 'Remember me on your computer' option.
-	});
-
-</script>
